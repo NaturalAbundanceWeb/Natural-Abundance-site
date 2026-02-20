@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <text x="100" y="24" text-anchor="middle" font-family="Raleway, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#2D5A3D" letter-spacing="1">Natural</text>
+  <text x="100" y="48" text-anchor="middle" font-family="Raleway, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#2D5A3D" letter-spacing="1">Abundance</text>
+  <line x1="70" y1="54" x2="130" y2="54" stroke="#E8A93B" stroke-width="2"/>
+</svg>

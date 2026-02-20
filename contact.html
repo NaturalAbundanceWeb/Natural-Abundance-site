@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Natural Abundance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-forest-green.png" alt="Natural Abundance Logo">
+        <div>
+          <span class="nav__logo-text">Natural Abundance</span>
+          <span class="nav__logo-descriptor">Edible Landscaping &amp; Farm Management</span>
+        </div>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-hero page-hero--overlay" style="background-color: #2D5A3D;">
+    <div class="page-hero__content">
+      <span class="page-hero__descriptor">GET IN TOUCH</span>
+      <h1 class="page-hero__title">Contact Us</h1>
+      <p class="page-hero__subtitle">Free consultations for Hamakua Coast properties. Let's talk about what your land can become.</p>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <form name="contact" method="POST" data-netlify="true" class="contact-form fade-up">
+            <input type="hidden" name="form-name" value="contact">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(808) 555-0000">
+            </div>
+            <div>
+              <label for="subject">Subject</label>
+              <select id="subject" name="subject">
+                <option value="">Select a topic...</option>
+                <option value="consultation">Free Consultation</option>
+                <option value="edible-landscape">Edible Landscape Design</option>
+                <option value="farm-management">Farm Management</option>
+                <option value="land-clearing">Land Clearing</option>
+                <option value="knf-soil">KNF &amp; Soil Building</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us about your land and your vision..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send Message</button>
+          </form>
+        </div>
+
+        <div class="fade-up">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <div class="contact-info__item">
+              <span class="contact-info__icon">&#9679;</span>
+              <p>Hamakua Coast<br>Big Island, Hawaiʻi</p>
+            </div>
+            <div class="contact-info__item">
+              <span class="contact-info__icon">&#9679;</span>
+              <p><a href="tel:+15307488158">(530) 748-8158</a></p>
+            </div>
+            <div class="contact-info__item">
+              <span class="contact-info__icon">&#9679;</span>
+              <p><a href="mailto:erik@naturalabundance.co">erik@naturalabundance.co</a></p>
+            </div>
+            <div class="contact-info__item">
+              <span class="contact-info__icon">&#9679;</span>
+              <p><a href="https://naturalabundance.co">naturalabundance.co</a></p>
+            </div>
+          </div>
+          <div class="contact-photo">
+            <img src="images/about/erik-with-couple.jpg" alt="Erik consulting with clients">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="images/logo-forest-green.png" alt="Natural Abundance Logo">
+          <p>Edible Landscaping &amp; Farm Management on the Hamakua Coast, Hawaiʻi</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>Get in Touch</h4>
+          <p>Hamakua Coast, Big Island, Hawaiʻi</p>
+          <p><a href="tel:+15307488158">(530) 748-8158</a></p>
+          <p><a href="mailto:erik@naturalabundance.co">erik@naturalabundance.co</a></p>
+          <p>naturalabundance.co</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Natural Abundance. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
