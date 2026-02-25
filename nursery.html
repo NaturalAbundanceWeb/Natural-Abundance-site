@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Nursery — Natural Abundance | Tropical Plants, Hamakua Coast, Hawaiʻi</title>
+  <meta name="description" content="Browse our nursery inventory — tropical fruit trees, native plants, and edible landscaping starts grown on the Hamakua Coast of Hawaiʻi. Available for pickup or delivery.">
+  <meta name="keywords" content="tropical nursery, fruit trees Hawaii, edible plants, Hamakua Coast nursery, Big Island plants, native Hawaiian plants">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Plant Nursery — Natural Abundance">
+  <meta property="og:description" content="Tropical fruit trees, native plants, and edible landscaping starts grown on the Hamakua Coast.">
+  <meta property="og:image" content="images/hero-food-forest.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://naturalabundance.co/nursery.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo-forest-green.png">
+
+  <!-- Google Fonts fallback for Lora (body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Nursery Page Styles -->
+  <style>
+    /* ── Page Hero (compact for inner pages) ──────────────── */
+    .page-hero {
+      background: var(--forest-green);
+      padding: 48px 24px 52px;
+      text-align: center;
+      margin-top: 72px;
+    }
+    .page-hero__descriptor {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--golden-amber);
+      margin-bottom: 10px;
+    }
+    .page-hero__title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 2.6rem;
+      color: var(--white);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .page-hero__subtitle {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: #B8CDB8;
+      font-style: italic;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── Nursery Intro ────────────────────────────────────── */
+    .nursery-intro {
+      background: var(--cream);
+      padding: 64px 24px;
+      text-align: center;
+    }
+    .nursery-intro p {
+      color: var(--slate-teal);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: var(--content-narrow);
+      margin: 0 auto 16px;
+    }
+    .nursery-intro p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* ── Category Tabs ────────────────────────────────────── */
+    .nursery-inventory {
+      background: var(--white);
+      padding: 80px 24px 100px;
+    }
+    .nursery-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 36px;
+      margin-bottom: 40px;
+    }
+    .nursery-tab {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border: 2px solid var(--forest-green);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--forest-green);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .nursery-tab:hover {
+      background: var(--forest-green-light);
+    }
+    .nursery-tab.active {
+      background: var(--forest-green);
+      color: var(--white);
+    }
+
+    /* ── Inventory Grid ───────────────────────────────────── */
+    .inventory-panel {
+      display: none;
+    }
+    .inventory-panel.active {
+      display: block;
+    }
+    .inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: var(--content-max);
+      margin: 0 auto;
+    }
+
+    /* ── Plant Card ───────────────────────────────────────── */
+    .plant-card {
+      background: var(--cream);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .plant-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .plant-card__img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: var(--warm-sand);
+    }
+    .plant-card__img-placeholder {
+      width: 100%;
+      height: 200px;
+      background: var(--warm-sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .plant-card__img-placeholder svg {
+      width: 48px;
+      height: 48px;
+      fill: var(--slate-teal);
+      opacity: 0.3;
+    }
+    .plant-card__body {
+      padding: 20px 22px 24px;
+    }
+    .plant-card__accent {
+      width: 30px;
+      height: 2.5px;
+      background: var(--golden-amber);
+      margin-bottom: 12px;
+      border-radius: 2px;
+    }
+    .plant-card__name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--forest-green);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .plant-card__botanical {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--slate-teal);
+      margin-bottom: 14px;
+      opacity: 0.8;
+    }
+    .plant-card__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .plant-card__price {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--golden-amber);
+    }
+    .plant-card__avail {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+      background: var(--forest-green-light);
+      color: var(--forest-green);
+    }
+    .plant-card__avail--low {
+      background: rgba(232, 169, 59, 0.15);
+      color: #c48a1f;
+    }
+    .plant-card__avail--out {
+      background: rgba(0,0,0,0.06);
+      color: #999;
+    }
+
+    /* ── Empty State ───────────────────────────────────────── */
+    .inventory-empty {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--slate-teal);
+    }
+    .inventory-empty p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* ── Service Highlight Strip ───────────────────────────── */
+    .service-strip {
+      background: var(--warm-sand);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .service-strip__text {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      color: var(--slate-teal);
+      max-width: 600px;
+      margin: 0 auto 28px;
+      line-height: 1.75;
+    }
+    .service-strip__cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 700px;
+      margin: 36px auto 0;
+    }
+    .service-mini {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 24px 20px;
+      text-align: left;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-mini:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .service-mini__accent {
+      width: 28px;
+      height: 2.5px;
+      background: var(--golden-amber);
+      margin-bottom: 12px;
+      border-radius: 2px;
+    }
+    .service-mini__title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--forest-green);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .service-mini:nth-child(even) .service-mini__title {
+      color: var(--slate-teal);
+    }
+    .service-mini__desc {
+      font-size: 0.85rem;
+      color: var(--near-black);
+      line-height: 1.6;
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .page-hero__title {
+        font-size: 1.9rem;
+      }
+      .page-hero {
+        padding: 36px 24px 42px;
+      }
+      .nursery-inventory {
+        padding: 60px 24px 72px;
+      }
+      .nursery-tabs {
+        gap: 6px;
+      }
+      .nursery-tab {
+        font-size: 0.72rem;
+        padding: 8px 14px;
+      }
+      .inventory-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+      .service-strip__cards {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="images/logo-forest-green.png" alt="Natural Abundance Logo">
+        <div>
+          <span class="nav__logo-text">Natural Abundance</span>
+          <span class="nav__logo-descriptor">Edible Landscaping &amp; Farm Management</span>
+        </div>
+      </a>
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="nursery.html" class="active">Nursery</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       PAGE HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <p class="page-hero__descriptor">Grown on the Hamakua Coast</p>
+    <h1 class="page-hero__title">Plant Nursery</h1>
+    <p class="page-hero__subtitle">Tropical fruit trees, native plants, and edible landscaping starts — all grown with care in Hawaiʻi's rich volcanic soil.</p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       NURSERY INTRO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="nursery-intro fade-up">
+    <hr class="accent-line">
+    <p>
+      Every plant in our nursery is grown right here on the Hamakua Coast using organic practices
+      and healthy, living soil. Whether you're starting a backyard garden or planting a full
+      edible landscape, we have the trees, shrubs, and ground covers to get you growing.
+    </p>
+    <p>
+      Availability changes with the seasons — reach out to reserve plants or ask about
+      custom growing for your project.
+    </p>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       INVENTORY WITH TABS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="nursery-inventory" id="inventory">
+    <div class="container fade-up">
+      <h2 class="section-heading text-center">Current Inventory</h2>
+      <hr class="accent-line">
+
+      <!-- Category Tabs -->
+      <div class="nursery-tabs" role="tablist">
+        <button class="nursery-tab active" role="tab" data-category="all" aria-selected="true">All Plants</button>
+        <button class="nursery-tab" role="tab" data-category="fruit-trees" aria-selected="false">Fruit Trees</button>
+        <button class="nursery-tab" role="tab" data-category="native" aria-selected="false">Native Plants</button>
+        <button class="nursery-tab" role="tab" data-category="herbs" aria-selected="false">Herbs &amp; Spices</button>
+        <button class="nursery-tab" role="tab" data-category="ornamental" aria-selected="false">Ornamental</button>
+        <button class="nursery-tab" role="tab" data-category="ground-cover" aria-selected="false">Ground Cover</button>
+      </div>
+
+      <!-- Inventory Grid (populated by JS) -->
+      <div class="inventory-grid" id="inventoryGrid">
+        <!-- Plant cards render here -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="inventory-empty" id="inventoryEmpty" style="display: none;">
+        <p>No plants in this category right now.<br>Check back soon or <a href="mailto:erik@naturalabundance.co">contact us</a> about custom growing.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SERVICE HIGHLIGHT — HOOK INTO SERVICES
+       ═══════════════════════════════════════════════════════ -->
+  <section class="service-strip fade-up">
+    <h2 class="section-heading text-center">More Than a Nursery</h2>
+    <hr class="accent-line">
+    <p class="service-strip__text">
+      Need help deciding what to plant — or someone to design and install
+      your entire landscape? That's what we do best.
+    </p>
+
+    <div class="service-strip__cards">
+      <div class="service-mini">
+        <div class="service-mini__accent"></div>
+        <h3 class="service-mini__title">Edible Landscape Design</h3>
+        <p class="service-mini__desc">Custom tropical gardens and orchards tailored to your land.</p>
+      </div>
+      <div class="service-mini">
+        <div class="service-mini__accent"></div>
+        <h3 class="service-mini__title">Farm Management</h3>
+        <p class="service-mini__desc">Ongoing care, soil building, and harvest management.</p>
+      </div>
+      <div class="service-mini">
+        <div class="service-mini__accent"></div>
+        <h3 class="service-mini__title">Land Clearing</h3>
+        <p class="service-mini__desc">Responsible clearing that preserves your topsoil.</p>
+      </div>
+      <div class="service-mini">
+        <div class="service-mini__accent"></div>
+        <h3 class="service-mini__title">Organic Conversion</h3>
+        <p class="service-mini__desc">Transition to organic with a clear, actionable plan.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       BOTTOM CTA
+       ═══════════════════════════════════════════════════════ -->
+  <section class="cta">
+    <div class="container--narrow fade-up">
+      <h2 class="cta__heading">Ready to Grow?</h2>
+      <p class="cta__subtext">Let's talk about what your land can become.</p>
+      <p class="cta__subtext">Free consultations for Hamakua Coast properties.</p>
+      <a href="mailto:erik@naturalabundance.co?subject=Free%20Consultation%20Request" class="btn btn--primary">
+        Schedule Your Free Consultation
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <img src="images/logo-forest-green.png" alt="Natural Abundance" width="66" height="50">
+        <p>Edible Landscaping &amp; Farm Management on the Hamakua Coast, Hawaiʻi</p>
+      </div>
+
+      <div>
+        <h4 class="footer__heading">Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About Erik</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="nursery.html">Nursery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__contact">
+        <h4 class="footer__heading">Contact</h4>
+        <p>Hamakua Coast, Big Island<br>Hawaiʻi</p>
+        <p><a href="mailto:erik@naturalabundance.co">erik@naturalabundance.co</a></p>
+        <p><a href="tel:+15307488158">(530) 748-8158</a></p>
+        <p><a href="https://naturalabundance.co">naturalabundance.co</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 Natural Abundance. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+
+  <!-- Nursery Inventory Data & Logic -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ══════════════════════════════════════════════════════
+       INVENTORY DATA
+       Edit this array to update your nursery inventory.
+       Each entry needs: name, category, price, available.
+       Optional: botanical, image (path to photo), description.
+
+       Categories: fruit-trees, native, herbs, ornamental, ground-cover
+       ══════════════════════════════════════════════════════ */
+    const inventory = [
+      // ── Fruit Trees ──────────────────────────────────
+      {
+        name: 'Apple Banana',
+        botanical: 'Musa × paradisiaca',
+        category: 'fruit-trees',
+        price: 25,
+        available: 12,
+        image: '',
+        description: 'Sweet, compact banana variety perfect for home gardens.'
+      },
+      {
+        name: 'Strawberry Guava',
+        botanical: 'Psidium cattleianum',
+        category: 'fruit-trees',
+        price: 18,
+        available: 8,
+        image: '',
+        description: 'Prolific tropical fruit, great fresh or in jam.'
+      },
+      {
+        name: 'Papaya — Solo',
+        botanical: 'Carica papaya',
+        category: 'fruit-trees',
+        price: 12,
+        available: 20,
+        image: '',
+        description: 'Classic Hawaiian papaya. Fruits in under a year.'
+      },
+      {
+        name: 'Breadfruit',
+        botanical: 'Artocarpus altilis',
+        category: 'fruit-trees',
+        price: 45,
+        available: 5,
+        image: '',
+        description: 'Staple canoe plant. Starchy, versatile fruit.'
+      },
+      {
+        name: 'Cacao',
+        botanical: 'Theobroma cacao',
+        category: 'fruit-trees',
+        price: 35,
+        available: 7,
+        image: '',
+        description: 'Grow your own chocolate. Thrives in Hamakua shade.'
+      },
+      {
+        name: 'Starfruit',
+        botanical: 'Averrhoa carambola',
+        category: 'fruit-trees',
+        price: 30,
+        available: 4,
+        image: '',
+        description: 'Beautiful ornamental fruit tree with sweet, tangy fruit.'
+      },
+      {
+        name: 'Meyer Lemon',
+        botanical: 'Citrus × meyeri',
+        category: 'fruit-trees',
+        price: 28,
+        available: 6,
+        image: '',
+        description: 'Sweeter than standard lemons. Great for containers.'
+      },
+      {
+        name: 'Avocado — Sharwil',
+        botanical: 'Persea americana',
+        category: 'fruit-trees',
+        price: 55,
+        available: 3,
+        image: '',
+        description: 'Premium Hawaiʻi avocado variety. Rich, buttery flavor.'
+      },
+
+      // ── Native Plants ────────────────────────────────
+      {
+        name: 'ʻŌhiʻa Lehua',
+        botanical: 'Metrosideros polymorpha',
+        category: 'native',
+        price: 22,
+        available: 10,
+        image: '',
+        description: 'Sacred Hawaiian tree. Red blossoms support native pollinators.'
+      },
+      {
+        name: 'Koa',
+        botanical: 'Acacia koa',
+        category: 'native',
+        price: 18,
+        available: 15,
+        image: '',
+        description: 'Iconic Hawaiian hardwood. Fast-growing native reforestation tree.'
+      },
+      {
+        name: 'Kukui',
+        botanical: 'Aleurites moluccanus',
+        category: 'native',
+        price: 20,
+        available: 6,
+        image: '',
+        description: 'The candlenut tree — Hawaiʻi state tree. Shade and cultural significance.'
+      },
+      {
+        name: 'Māmaki',
+        botanical: 'Pipturus albidus',
+        category: 'native',
+        price: 14,
+        available: 18,
+        image: '',
+        description: 'Endemic Hawaiian plant. Makes wonderful herbal tea.'
+      },
+
+      // ── Herbs & Spices ───────────────────────────────
+      {
+        name: 'Turmeric',
+        botanical: 'Curcuma longa',
+        category: 'herbs',
+        price: 8,
+        available: 25,
+        image: '',
+        description: 'Fresh tropical turmeric. Far superior to dried.'
+      },
+      {
+        name: 'Galangal',
+        botanical: 'Alpinia galanga',
+        category: 'herbs',
+        price: 10,
+        available: 12,
+        image: '',
+        description: 'Thai ginger relative. Essential for Southeast Asian cooking.'
+      },
+      {
+        name: 'Lemongrass',
+        botanical: 'Cymbopogon citratus',
+        category: 'herbs',
+        price: 6,
+        available: 30,
+        image: '',
+        description: 'Fragrant culinary herb. Practically grows itself in Hawaiʻi.'
+      },
+      {
+        name: 'Vanilla',
+        botanical: 'Vanilla planifolia',
+        category: 'herbs',
+        price: 35,
+        available: 4,
+        image: '',
+        description: 'Tropical orchid vine. Needs a host tree and patience.'
+      },
+
+      // ── Ornamental ───────────────────────────────────
+      {
+        name: 'Bird of Paradise',
+        botanical: 'Strelitzia reginae',
+        category: 'ornamental',
+        price: 24,
+        available: 9,
+        image: '',
+        description: 'Iconic tropical flower. Dramatic orange and blue blooms.'
+      },
+      {
+        name: 'Plumeria',
+        botanical: 'Plumeria rubra',
+        category: 'ornamental',
+        price: 20,
+        available: 14,
+        image: '',
+        description: 'Classic lei flower. Fragrant and easy to grow.'
+      },
+      {
+        name: 'Heliconia — Lobster Claw',
+        botanical: 'Heliconia rostrata',
+        category: 'ornamental',
+        price: 22,
+        available: 7,
+        image: '',
+        description: 'Stunning hanging tropical flowers. Hummingbird magnet.'
+      },
+
+      // ── Ground Cover ─────────────────────────────────
+      {
+        name: 'Sweet Potato',
+        botanical: 'Ipomoea batatas',
+        category: 'ground-cover',
+        price: 4,
+        available: 40,
+        image: '',
+        description: 'Edible ground cover. Suppresses weeds, feeds families.'
+      },
+      {
+        name: 'Pinto Peanut',
+        botanical: 'Arachis pintoi',
+        category: 'ground-cover',
+        price: 5,
+        available: 35,
+        image: '',
+        description: 'Nitrogen-fixing living mulch. Yellow flowers, tough and spreading.'
+      },
+      {
+        name: 'Comfrey',
+        botanical: 'Symphytum officinale',
+        category: 'ground-cover',
+        price: 6,
+        available: 20,
+        image: '',
+        description: 'Dynamic accumulator and chop-and-drop mulch machine.'
+      },
+    ];
+
+
+    /* ══════════════════════════════════════════════════════
+       RENDER LOGIC
+       ══════════════════════════════════════════════════════ */
+    const grid = document.getElementById('inventoryGrid');
+    const empty = document.getElementById('inventoryEmpty');
+    const tabs = document.querySelectorAll('.nursery-tab');
+
+    // Leaf SVG for placeholder
+    const leafSVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>`;
+
+    function getAvailLabel(count) {
+      if (count === 0) return { text: 'Sold Out', cls: 'plant-card__avail--out' };
+      if (count <= 5) return { text: count + ' left', cls: 'plant-card__avail--low' };
+      return { text: 'In Stock', cls: '' };
+    }
+
+    function renderPlants(category) {
+      const filtered = category === 'all'
+        ? inventory
+        : inventory.filter(p => p.category === category);
+
+      if (filtered.length === 0) {
+        grid.style.display = 'none';
+        empty.style.display = 'block';
+        return;
+      }
+
+      grid.style.display = '';
+      empty.style.display = 'none';
+
+      grid.innerHTML = filtered.map(plant => {
+        const avail = getAvailLabel(plant.available);
+        const imgBlock = plant.image
+          ? `<img class="plant-card__img" src="${plant.image}" alt="${plant.name}" loading="lazy">`
+          : `<div class="plant-card__img-placeholder">${leafSVG}</div>`;
+
+        return `
+          <div class="plant-card">
+            ${imgBlock}
+            <div class="plant-card__body">
+              <div class="plant-card__accent"></div>
+              <h3 class="plant-card__name">${plant.name}</h3>
+              ${plant.botanical ? `<p class="plant-card__botanical">${plant.botanical}</p>` : ''}
+              <div class="plant-card__meta">
+                <span class="plant-card__price">$${plant.price}</span>
+                <span class="plant-card__avail ${avail.cls}">${avail.text}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Tab switching
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        renderPlants(tab.dataset.category);
+      });
+    });
+
+    // Initial render
+    renderPlants('all');
+
+  })();
+  </script>
+
+</body>
+</html>
