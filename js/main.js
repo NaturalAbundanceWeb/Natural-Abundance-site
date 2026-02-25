@@ -130,10 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* --- Testimonial Carousel --- */
+  /* --- Testimonial Carousel (swipeable) --- */
   document.querySelectorAll('.testimonial-carousel').forEach(carousel => {
     const slides = carousel.querySelectorAll('.testimonial-carousel__slide');
     const dots = carousel.querySelectorAll('.testimonial-carousel__dot');
+    const prevBtn = carousel.querySelector('.testimonial-carousel__nav--prev');
+    const nextBtn = carousel.querySelector('.testimonial-carousel__nav--next');
     if (slides.length === 0) return;
 
     let current = 0;
@@ -151,6 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
       goToSlide((current + 1) % slides.length);
     }
 
+    function prevSlide() {
+      goToSlide((current - 1 + slides.length) % slides.length);
+    }
+
     function startAutoplay() {
       interval = setInterval(nextSlide, 7000);
     }
@@ -160,6 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
       startAutoplay();
     }
 
+    // Arrow nav
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+
     // Dot click handlers
     dots.forEach((dot, i) => {
       dot.addEventListener('click', () => {
@@ -167,6 +177,24 @@ document.addEventListener('DOMContentLoaded', () => {
         resetAutoplay();
       });
     });
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) nextSlide();
+        else prevSlide();
+        resetAutoplay();
+      }
+    }, { passive: true });
 
     // Pause on hover
     carousel.addEventListener('mouseenter', () => clearInterval(interval));
