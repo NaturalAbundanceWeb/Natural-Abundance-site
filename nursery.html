@@ -500,227 +500,10 @@
     'use strict';
 
     /* ══════════════════════════════════════════════════════
-       INVENTORY DATA
-       Edit this array to update your nursery inventory.
-       Each entry needs: name, category, price, available.
-       Optional: botanical, image (path to photo), description.
-
-       Categories: fruit-trees, native, herbs, ornamental, ground-cover
+       INVENTORY — loaded from data/inventory.json
        ══════════════════════════════════════════════════════ */
-    const inventory = [
-      // ── Fruit Trees ──────────────────────────────────
-      {
-        name: 'Apple Banana',
-        botanical: 'Musa × paradisiaca',
-        category: 'fruit-trees',
-        price: 25,
-        available: 12,
-        image: '',
-        description: 'Sweet, compact banana variety perfect for home gardens.'
-      },
-      {
-        name: 'Strawberry Guava',
-        botanical: 'Psidium cattleianum',
-        category: 'fruit-trees',
-        price: 18,
-        available: 8,
-        image: '',
-        description: 'Prolific tropical fruit, great fresh or in jam.'
-      },
-      {
-        name: 'Papaya — Solo',
-        botanical: 'Carica papaya',
-        category: 'fruit-trees',
-        price: 12,
-        available: 20,
-        image: '',
-        description: 'Classic Hawaiian papaya. Fruits in under a year.'
-      },
-      {
-        name: 'Breadfruit',
-        botanical: 'Artocarpus altilis',
-        category: 'fruit-trees',
-        price: 45,
-        available: 5,
-        image: '',
-        description: 'Staple canoe plant. Starchy, versatile fruit.'
-      },
-      {
-        name: 'Cacao',
-        botanical: 'Theobroma cacao',
-        category: 'fruit-trees',
-        price: 35,
-        available: 7,
-        image: '',
-        description: 'Grow your own chocolate. Thrives in Hamakua shade.'
-      },
-      {
-        name: 'Starfruit',
-        botanical: 'Averrhoa carambola',
-        category: 'fruit-trees',
-        price: 30,
-        available: 4,
-        image: '',
-        description: 'Beautiful ornamental fruit tree with sweet, tangy fruit.'
-      },
-      {
-        name: 'Meyer Lemon',
-        botanical: 'Citrus × meyeri',
-        category: 'fruit-trees',
-        price: 28,
-        available: 6,
-        image: '',
-        description: 'Sweeter than standard lemons. Great for containers.'
-      },
-      {
-        name: 'Avocado — Sharwil',
-        botanical: 'Persea americana',
-        category: 'fruit-trees',
-        price: 55,
-        available: 3,
-        image: '',
-        description: 'Premium Hawaiʻi avocado variety. Rich, buttery flavor.'
-      },
+    let inventory = [];
 
-      // ── Native Plants ────────────────────────────────
-      {
-        name: 'ʻŌhiʻa Lehua',
-        botanical: 'Metrosideros polymorpha',
-        category: 'native',
-        price: 22,
-        available: 10,
-        image: '',
-        description: 'Sacred Hawaiian tree. Red blossoms support native pollinators.'
-      },
-      {
-        name: 'Koa',
-        botanical: 'Acacia koa',
-        category: 'native',
-        price: 18,
-        available: 15,
-        image: '',
-        description: 'Iconic Hawaiian hardwood. Fast-growing native reforestation tree.'
-      },
-      {
-        name: 'Kukui',
-        botanical: 'Aleurites moluccanus',
-        category: 'native',
-        price: 20,
-        available: 6,
-        image: '',
-        description: 'The candlenut tree — Hawaiʻi state tree. Shade and cultural significance.'
-      },
-      {
-        name: 'Māmaki',
-        botanical: 'Pipturus albidus',
-        category: 'native',
-        price: 14,
-        available: 18,
-        image: '',
-        description: 'Endemic Hawaiian plant. Makes wonderful herbal tea.'
-      },
-
-      // ── Herbs & Spices ───────────────────────────────
-      {
-        name: 'Turmeric',
-        botanical: 'Curcuma longa',
-        category: 'herbs',
-        price: 8,
-        available: 25,
-        image: '',
-        description: 'Fresh tropical turmeric. Far superior to dried.'
-      },
-      {
-        name: 'Galangal',
-        botanical: 'Alpinia galanga',
-        category: 'herbs',
-        price: 10,
-        available: 12,
-        image: '',
-        description: 'Thai ginger relative. Essential for Southeast Asian cooking.'
-      },
-      {
-        name: 'Lemongrass',
-        botanical: 'Cymbopogon citratus',
-        category: 'herbs',
-        price: 6,
-        available: 30,
-        image: '',
-        description: 'Fragrant culinary herb. Practically grows itself in Hawaiʻi.'
-      },
-      {
-        name: 'Vanilla',
-        botanical: 'Vanilla planifolia',
-        category: 'herbs',
-        price: 35,
-        available: 4,
-        image: '',
-        description: 'Tropical orchid vine. Needs a host tree and patience.'
-      },
-
-      // ── Ornamental ───────────────────────────────────
-      {
-        name: 'Bird of Paradise',
-        botanical: 'Strelitzia reginae',
-        category: 'ornamental',
-        price: 24,
-        available: 9,
-        image: '',
-        description: 'Iconic tropical flower. Dramatic orange and blue blooms.'
-      },
-      {
-        name: 'Plumeria',
-        botanical: 'Plumeria rubra',
-        category: 'ornamental',
-        price: 20,
-        available: 14,
-        image: '',
-        description: 'Classic lei flower. Fragrant and easy to grow.'
-      },
-      {
-        name: 'Heliconia — Lobster Claw',
-        botanical: 'Heliconia rostrata',
-        category: 'ornamental',
-        price: 22,
-        available: 7,
-        image: '',
-        description: 'Stunning hanging tropical flowers. Hummingbird magnet.'
-      },
-
-      // ── Ground Cover ─────────────────────────────────
-      {
-        name: 'Sweet Potato',
-        botanical: 'Ipomoea batatas',
-        category: 'ground-cover',
-        price: 4,
-        available: 40,
-        image: '',
-        description: 'Edible ground cover. Suppresses weeds, feeds families.'
-      },
-      {
-        name: 'Pinto Peanut',
-        botanical: 'Arachis pintoi',
-        category: 'ground-cover',
-        price: 5,
-        available: 35,
-        image: '',
-        description: 'Nitrogen-fixing living mulch. Yellow flowers, tough and spreading.'
-      },
-      {
-        name: 'Comfrey',
-        botanical: 'Symphytum officinale',
-        category: 'ground-cover',
-        price: 6,
-        available: 20,
-        image: '',
-        description: 'Dynamic accumulator and chop-and-drop mulch machine.'
-      },
-    ];
-
-
-    /* ══════════════════════════════════════════════════════
-       RENDER LOGIC
-       ══════════════════════════════════════════════════════ */
     const grid = document.getElementById('inventoryGrid');
     const empty = document.getElementById('inventoryEmpty');
     const tabs = document.querySelectorAll('.nursery-tab');
@@ -761,6 +544,7 @@
               <div class="plant-card__accent"></div>
               <h3 class="plant-card__name">${plant.name}</h3>
               ${plant.botanical ? `<p class="plant-card__botanical">${plant.botanical}</p>` : ''}
+              ${plant.description ? `<p class="plant-card__desc">${plant.description}</p>` : ''}
               <div class="plant-card__meta">
                 <span class="plant-card__price">$${plant.price}</span>
                 <span class="plant-card__avail ${avail.cls}">${avail.text}</span>
@@ -784,8 +568,18 @@
       });
     });
 
-    // Initial render
-    renderPlants('all');
+    // Load inventory from JSON and render
+    fetch('data/inventory.json')
+      .then(res => res.json())
+      .then(data => {
+        inventory = data;
+        renderPlants('all');
+      })
+      .catch(err => {
+        console.error('Could not load inventory:', err);
+        empty.style.display = 'block';
+        empty.textContent = 'Inventory is being updated — check back soon!';
+      });
 
   })();
   </script>
