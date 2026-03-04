@@ -2,7 +2,7 @@
 ## For future content reference
 
 ### Erik DeGunther — Key Facts
-- Based on the Hamakua Coast, Big Island, Hawaiʻi
+- Based on the Big Island, Hawaiʻi
 - 3 years managing 8 acres in Papaikou
 - Pure KNF certified practitioner
 - Board member of the Pure KNF Foundation
@@ -34,4 +34,4 @@
 - Phone: (530) 748-8158
 - Email: erik@naturalabundance.co
 - Website: naturalabundance.co
-- Location: Hamakua Coast, Big Island, Hawaiʻi
+- Location: Big Island, Hawaiʻi

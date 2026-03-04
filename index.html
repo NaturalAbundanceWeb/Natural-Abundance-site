@@ -3,183 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Natural Abundance | Edible Landscaping &amp; Farm Management</title>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Natural Abundance — Edible Landscaping & Farm Management | Big Island, Hawaiʻi</title>
+  <meta name="description" content="Natural Abundance designs and manages edible landscapes and organic farms on the Big Island of Hawaiʻi. From backyard gardens to working farms — designed, installed, and managed.">
+  <meta name="keywords" content="edible landscaping, food forest, organic farm management, Big Island Hawaii, permaculture, tropical agriculture, edible landscape design">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Natural Abundance — Edible Landscaping & Farm Management">
+  <meta property="og:description" content="From backyard gardens to working farms — designed, installed, and managed. Edible landscape design, organic farm management, and land conversion on Hawaiʻi's Big Island.">
+  <meta property="og:image" content="images/hero-food-forest.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://naturalabundance.co">
+
+  <!-- Favicon (placeholder — replace with your actual favicon) -->
+  <link rel="icon" type="image/png" href="images/logo-forest-green.png">
+
+  <!-- Google Fonts fallback for Lora (body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-  <nav class="nav">
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo">
-        <img src="images/logo-forest-green.png" alt="Natural Abundance Logo">
-        <div>
-          <span class="nav__logo-text">Natural Abundance</span>
-          <span class="nav__logo-descriptor">Edible Landscaping &amp; Farm Management</span>
-        </div>
+      <a href="index.html" class="nav__logo" aria-label="Natural Abundance — Home">
+        <img src="images/logo-forest-green.png" alt="Natural Abundance logo" width="66" height="50">
       </a>
+
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <ul class="nav__links">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="nursery.html">Nursery</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="nav__hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
-  <section class="hero" style="background-image: url('images/hero-food-forest.jpg'); background-size: cover; background-position: center;">
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO BANNER
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <img src="images/hero-food-forest.jpg"
+           alt="Aerial view of a lush tropical food forest on the Big Island of Hawaiʻi"
+           loading="eager">
+    </div>
+    <div class="hero__overlay"></div>
+
     <div class="hero__content">
-      <p class="hero__descriptor">EDIBLE LANDSCAPING &amp; FARM MANAGEMENT</p>
+      <p class="hero__descriptor">Edible Landscaping &amp; Farm Management</p>
       <h1 class="hero__title">Natural Abundance</h1>
       <p class="hero__tagline">From backyard gardens to working farms — designed, installed, and managed.</p>
       <div class="hero__buttons">
-        <a href="services.html" class="btn btn--primary">View Services</a>
-        <a href="contact.html" class="btn btn--outline-light">Get a Free Consultation</a>
+        <a href="#services" class="btn btn--primary">View Services</a>
+        <a href="#contact" class="btn btn--outline">Get a Free Consultation</a>
       </div>
     </div>
   </section>
 
-  <section class="section section--cream">
-    <div class="container">
-      <div class="section__header">
-        <hr class="accent-line">
-        <h2>Serving the Land</h2>
-      </div>
-      <div class="fade-up" style="max-width: 700px; margin: 0 auto; text-align: center;">
-        <p>On the lush East side of the Big Island of Hawaiʻi, Natural Abundance transforms landscapes into thriving, productive ecosystems. We design and manage edible landscapes and organic farms that work with the land — not against it — creating abundance and resilience for generations.</p>
-        <p>Whether you have a backyard you'd love to fill with fruit trees or acreage ready to become a profitable working farm, we bring the expertise, the design, and the hands-on management to make it happen. Systems that work with nature require fewer inputs, less labor, and produce more reliably over time.</p>
-        <a href="about.html" style="color: #2D5A3D; font-weight: 600;">Learn more about our story →</a>
-      </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       INTRODUCTION
+       ═══════════════════════════════════════════════════════ -->
+  <section class="intro" id="about">
+    <div class="container--narrow fade-up">
+      <hr class="accent-line">
+      <h2 class="section-heading">Rooted in the Land</h2>
+      <p>
+        On the lush East side of Hawaiʻi's Big Island, Natural Abundance transforms
+        landscapes into thriving, productive ecosystems. We design and manage edible landscapes
+        and organic farms that work with the land — not against it — creating beauty, abundance,
+        and resilience for generations.
+      </p>
+      <p>
+        Whether you have a backyard you'd love to fill with fruit trees or acreage ready for
+        organic conversion, we bring the expertise, the plants, and the hands-on care to make
+        it happen.
+      </p>
+      <a href="#about" class="intro__link">Learn more about our story →</a>
     </div>
   </section>
 
-  <section class="section section--white">
-    <div class="container">
-      <div class="section__header">
-        <hr class="accent-line">
-        <h2>What We Do</h2>
-      </div>
-      <div class="services-grid fade-up">
+
+  <!-- ═══════════════════════════════════════════════════════
+       SERVICES OVERVIEW
+       ═══════════════════════════════════════════════════════ -->
+  <section class="services" id="services">
+    <div class="container fade-up">
+      <h2 class="section-heading text-center">What We Do</h2>
+      <hr class="accent-line">
+
+      <div class="services__grid">
+
         <div class="service-card">
-          <h3>Edible Landscape Design &amp; Installation</h3>
-          <p>Custom edible landscapes, fruit tree orchards, and tropical gardens tailored to your land. We design productive, beautiful systems that thrive in Hawaiʻi's unique microclimates.</p>
+          <div class="service-card__accent"></div>
+          <h3 class="service-card__title">Edible Landscape Design &amp; Installation</h3>
+          <p class="service-card__desc">
+            Custom food forests, fruit tree orchards, and tropical gardens tailored to your land.
+          </p>
         </div>
+
         <div class="service-card">
-          <h3>Organic Farm Management &amp; Maintenance</h3>
-          <p>Ongoing care, soil building, and harvest management for productive organic systems. We keep your land healthy, efficient, and producing year-round.</p>
+          <div class="service-card__accent"></div>
+          <h3 class="service-card__title">Organic Farm Management</h3>
+          <p class="service-card__desc">
+            Ongoing care, soil building, and harvest management for productive organic systems.
+          </p>
         </div>
+
         <div class="service-card">
-          <h3>Land Clearing &amp; Site Preparation</h3>
-          <p>Responsible clearing that preserves topsoil and prepares your land for planting. We work carefully to protect the existing ecosystem while making room for new growth.</p>
+          <div class="service-card__accent"></div>
+          <h3 class="service-card__title">Land Clearing &amp; Site Preparation</h3>
+          <p class="service-card__desc">
+            Responsible clearing that preserves topsoil and prepares your land for planting.
+          </p>
         </div>
+
         <div class="service-card">
-          <h3>Korean Natural Farming &amp; Soil Building</h3>
-          <p>As a Pure KNF certified practitioner and board member of the Pure KNF Foundation, Erik applies Korean Natural Farming principles to build living soil systems and grow nutrient-dense food without synthetic inputs.</p>
+          <div class="service-card__accent"></div>
+          <h3 class="service-card__title">Conventional to Organic Conversion</h3>
+          <p class="service-card__desc">
+            Transition your property to organic practices with a clear, actionable plan.
+          </p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="section section--teal">
-    <div class="testimonial-carousel">
-      <button class="testimonial-carousel__nav testimonial-carousel__nav--prev" aria-label="Previous testimonial">&#8249;</button>
-      <button class="testimonial-carousel__nav testimonial-carousel__nav--next" aria-label="Next testimonial">&#8250;</button>
-      <div class="testimonial-carousel__track">
-        <div class="testimonial-carousel__slide">
-          <p class="testimonial-carousel__text">"The project Erik helped me with turned out beautifully. His care and attention to detail shine through his work. He checks in and follows up, which I believe comes from his genuine care for the land, plants and people."</p>
-          <span class="testimonial-carousel__author">— Amanda R.</span>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TESTIMONIAL
+       ═══════════════════════════════════════════════════════ -->
+  <section class="testimonial" id="testimonial">
+    <div class="container--narrow fade-up">
+      <div class="testimonial__quote-mark" aria-hidden="true">"</div>
+      <p class="testimonial__text">
+        "Erik transformed our overgrown half-acre into a beautiful, productive food forest.
+        We're harvesting bananas, papayas, and citrus year-round. He didn't just plant trees
+        — he created an entire ecosystem."
+      </p>
+      <hr class="accent-line">
+      <p class="testimonial__author">— Amanda R., Pepeʻekeo</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       OUR APPROACH
+       ═══════════════════════════════════════════════════════ -->
+  <section class="approach" id="approach">
+    <div class="container fade-up">
+      <h2 class="section-heading text-center">Our Approach</h2>
+      <hr class="accent-line">
+
+      <div class="approach__pillars">
+
+        <div class="pillar">
+          <div class="pillar__icon">
+            <!-- Leaf / Sprout icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title">Work With the Land</h3>
+          <p class="pillar__desc">
+            We read the landscape — slope, soil, water, wind — and design systems that thrive naturally.
+          </p>
         </div>
-        <div class="testimonial-carousel__slide">
-          <p class="testimonial-carousel__text">"We are not only satisfied with the transformation and our thriving food forest, but we are inspired by our new and healthy relationship with everything our land now provides."</p>
-          <span class="testimonial-carousel__author">— Scott H.</span>
+
+        <div class="pillar">
+          <div class="pillar__icon">
+            <!-- Soil / Layers icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title">Build Living Soil</h3>
+          <p class="pillar__desc">
+            Healthy soil is the foundation of everything. We build it through compost, mulch, and care.
+          </p>
         </div>
-        <div class="testimonial-carousel__slide">
-          <p class="testimonial-carousel__text">"I would recommend you to anyone who wants to grow their own food without having the specific knowledge to do it right. I see so many people just trying around and then being disappointed why it doesnt work out. Sometimes they care for a tree for 10 years or more only to realize eventually that it wont fruit."</p>
-          <span class="testimonial-carousel__author">— Stefanie N.</span>
+
+        <div class="pillar">
+          <div class="pillar__icon">
+            <!-- Tree / Growth icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71L12 2zm0 3.8l4.37 12.06L12 15.79l-4.37 2.07L12 5.8z"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title">Grow for Generations</h3>
+          <p class="pillar__desc">
+            Every planting plan is designed to produce for decades, not just seasons.
+          </p>
         </div>
-      </div>
-      <div class="testimonial-carousel__dots">
-        <button class="testimonial-carousel__dot" aria-label="Testimonial 1"></button>
-        <button class="testimonial-carousel__dot" aria-label="Testimonial 2"></button>
-        <button class="testimonial-carousel__dot" aria-label="Testimonial 3"></button>
+
       </div>
     </div>
   </section>
 
-  <section class="section section--sand">
-    <div class="container">
-      <div class="section__header">
-        <hr class="accent-line">
-        <h2>Our Approach</h2>
-      </div>
-      <div class="approach-grid fade-up">
-        <div class="approach-card">
-          <span class="approach-card__bullet"></span>
-          <h3>Work With the Land</h3>
-          <p>We read the landscape — slope, soil, water, wind — and design systems that thrive naturally. Working with natural processes means fewer purchased inputs, less labor, and better results.</p>
-        </div>
-        <div class="approach-card">
-          <span class="approach-card__bullet"></span>
-          <h3>Build Living Soil</h3>
-          <p>Healthy soil is the foundation of everything. We build it through Korean Natural Farming inputs, compost, mulch, and care. Living soil grows healthier plants with less intervention.</p>
-        </div>
-        <div class="approach-card">
-          <span class="approach-card__bullet"></span>
-          <h3>Efficiency That Promotes Abundance</h3>
-          <p>Every planting plan stacks functions — maximizing production while minimizing maintenance. Systems designed for efficiency that compounds over time, producing more with less input each season.</p>
-        </div>
-      </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       BOTTOM CTA
+       ═══════════════════════════════════════════════════════ -->
+  <section class="cta" id="contact">
+    <div class="container--narrow fade-up">
+      <h2 class="cta__heading">Ready to Grow?</h2>
+      <p class="cta__subtext">Let's talk about what your land can become.</p>
+      <p class="cta__subtext">Free consultations for Big Island properties.</p>
+      <a href="mailto:erik@naturalabundance.co?subject=Free%20Consultation%20Request" class="btn btn--primary">
+        Schedule Your Free Consultation
+      </a>
     </div>
   </section>
 
-  <section class="section section--green">
-    <div class="container">
-      <div class="cta-block">
-        <h2>Ready to Grow?</h2>
-        <p>Let's talk about what your land can become.</p>
-        <p>Free consultations for Big Island properties.</p>
-        <a href="contact.html" class="btn btn--primary">Schedule Your Free Consultation</a>
-      </div>
-    </div>
-  </section>
 
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <img src="images/logo-forest-green.png" alt="Natural Abundance Logo">
-          <p>Edible Landscaping &amp; Farm Management on the Big Island of Hawaiʻi</p>
-        </div>
-        <div>
-          <h4>Quick Links</h4>
-          <ul class="footer__links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="nursery.html">Nursery</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__contact">
-          <h4>Get in Touch</h4>
-          <p>Big Island, Hawaiʻi</p>
-          <p><a href="tel:+15307488158">(530) 748-8158</a></p>
-          <p><a href="mailto:erik@naturalabundance.co">erik@naturalabundance.co</a></p>
-          <p>naturalabundance.co</p>
-        </div>
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <img src="images/logo-forest-green.png" alt="Natural Abundance" width="66" height="50">
+        <p>Edible Landscaping &amp; Farm Management on the Big Island of Hawaiʻi</p>
       </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Natural Abundance. All rights reserved.</p>
+
+      <div>
+        <h4 class="footer__heading">Quick Links</h4>
+        <ul class="footer__links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About Erik</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="nursery.html">Nursery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
+
+      <div class="footer__contact">
+        <h4 class="footer__heading">Contact</h4>
+        <p>Big Island, Hawaiʻi</p>
+        <p><a href="mailto:erik@naturalabundance.co">erik@naturalabundance.co</a></p>
+        <p><a href="https://naturalabundance.co">naturalabundance.co</a></p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 Natural Abundance. All rights reserved.</p>
     </div>
   </footer>
 
+
+  <!-- Main JavaScript -->
   <script src="js/main.js"></script>
+
 </body>
 </html>
