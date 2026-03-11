@@ -152,7 +152,7 @@
       width: 100%;
       height: 280px;
       object-fit: cover;
-      object-position: center top;
+      object-position: center 70%;
       background: var(--warm-sand);
     }
     .plant-card__img-placeholder {
@@ -396,7 +396,6 @@
         <button class="nursery-tab" role="tab" data-category="flowers" aria-selected="false">Flowers</button>
         <button class="nursery-tab" role="tab" data-category="other-edibles" aria-selected="false">Other Edibles</button>
         <button class="nursery-tab" role="tab" data-category="support" aria-selected="false">Support</button>
-        <button class="nursery-tab" role="tab" data-category="ground-cover" aria-selected="false">Ground Cover</button>
       </div>
 
       <!-- Inventory Grid (populated by JS) -->
@@ -545,6 +544,7 @@
         price: 55,
         available: 1,
         image: "images/nursery/bolivian-mangosteen.jpg",
+        imagePosition: "40%",
         description: "Rare lemondrop mangosteen \u2014 a truly exceptional find. Jewel-bright fruit with a citrusy-sweet flavor unlike anything at the grocery store.",
       },
       {
@@ -676,8 +676,9 @@
 
       grid.innerHTML = filtered.map(plant => {
         const avail = getAvailLabel(plant.available);
+        const imgStyle = plant.imagePosition ? ` style="object-position: center ${plant.imagePosition}"` : '';
         const imgBlock = plant.image
-          ? `<img class="plant-card__img" src="${plant.image}" alt="${plant.name}" loading="lazy">`
+          ? `<img class="plant-card__img" src="${plant.image}" alt="${plant.name}" loading="lazy"${imgStyle}>`
           : `<div class="plant-card__img-placeholder">${leafSVG}</div>`;
 
         return `
