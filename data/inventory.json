@@ -1,200 +1,132 @@
 [
   {
-    "name": "Apple Banana",
-    "botanical": "Musa × paradisiaca",
-    "category": "fruit-trees",
-    "price": 25,
-    "available": 12,
-    "image": "",
-    "description": "Sweet, compact banana variety perfect for home gardens."
-  },
-  {
-    "name": "Strawberry Guava",
-    "botanical": "Psidium cattleianum",
-    "category": "fruit-trees",
-    "price": 18,
-    "available": 8,
-    "image": "",
-    "description": "Prolific tropical fruit, great fresh or in jam."
-  },
-  {
-    "name": "Papaya — Solo",
-    "botanical": "Carica papaya",
-    "category": "fruit-trees",
-    "price": 12,
-    "available": 20,
-    "image": "",
-    "description": "Classic Hawaiian papaya. Fruits in under a year."
-  },
-  {
-    "name": "Breadfruit",
-    "botanical": "Artocarpus altilis",
+    "name": "Ackee",
+    "botanical": "Blighia sapida",
     "category": "fruit-trees",
     "price": 45,
-    "available": 5,
-    "image": "",
-    "description": "Staple canoe plant. Starchy, versatile fruit."
+    "available": 30,
+    "image": "images/nursery/ackee.jpg",
+    "description": "Jamaica's national fruit and one of the most striking trees in the tropical landscape — brilliant red pods splitting open to reveal golden arils.",
+    "featured": true
+  },
+  {
+    "name": "Bolivian Mangosteen",
+    "botanical": "Garcinia boliviana",
+    "category": "fruit-trees",
+    "price": 55,
+    "available": 1,
+    "image": "images/nursery/bolivian-mangosteen.jpg",
+    "description": "Rare lemondrop mangosteen — a truly exceptional find. Jewel-bright fruit with a citrusy-sweet flavor unlike anything at the grocery store.",
+    "featured": false
   },
   {
     "name": "Cacao",
     "botanical": "Theobroma cacao",
     "category": "fruit-trees",
-    "price": 35,
-    "available": 7,
-    "image": "",
-    "description": "Grow your own chocolate. Thrives in Hamakua shade."
+    "price": 15,
+    "available": 16,
+    "image": "images/nursery/cacao.jpg",
+    "description": "Grow your own chocolate. Cacao thrives in the dappled shade of a food forest and rewards patience with some of the most valuable pods on earth.",
+    "featured": false
   },
   {
-    "name": "Starfruit",
-    "botanical": "Averrhoa carambola",
+    "name": "Mulberry",
+    "botanical": "Morus sp.",
     "category": "fruit-trees",
-    "price": 30,
+    "price": 15,
     "available": 4,
-    "image": "",
-    "description": "Beautiful ornamental fruit tree with sweet, tangy fruit."
+    "image": "images/nursery/mulberry.jpg",
+    "description": "Fast-fruiting and generous — mulberry produces abundant sweet-tart berries while feeding birds and building soil beneath its canopy.",
+    "featured": false
   },
   {
-    "name": "Meyer Lemon",
-    "botanical": "Citrus × meyeri",
+    "name": "Soursop",
+    "botanical": "Annona muricata",
     "category": "fruit-trees",
-    "price": 28,
-    "available": 6,
-    "image": "",
-    "description": "Sweeter than standard lemons. Great for containers."
+    "price": 20,
+    "available": 14,
+    "image": "images/nursery/soursop.jpg",
+    "description": "Tropical fruit prized across the Pacific for its creamy, tangy flesh — a natural fit for Hawaiʻi's warm, wet climate.",
+    "featured": false
   },
   {
-    "name": "Avocado — Sharwil",
-    "botanical": "Persea americana",
-    "category": "fruit-trees",
-    "price": 55,
-    "available": 3,
-    "image": "",
-    "description": "Premium Hawaiʻi avocado variety. Rich, buttery flavor."
-  },
-  {
-    "name": "ʻŌhiʻa Lehua",
-    "botanical": "Metrosideros polymorpha",
+    "name": "Gliricidia",
+    "botanical": "Gliricidia sepium",
     "category": "native",
-    "price": 22,
-    "available": 10,
-    "image": "",
-    "description": "Sacred Hawaiian tree. Red blossoms support native pollinators."
+    "price": 25,
+    "available": 8,
+    "image": "images/nursery/gliricidia.jpg",
+    "description": "Madre de Cacao — a champion nitrogen-fixer and chop-and-drop mulch tree that feeds the whole system while shading young fruit trees.",
+    "featured": false
   },
   {
-    "name": "Koa",
-    "botanical": "Acacia koa",
+    "name": "Koki'o ke'o ke'o",
+    "botanical": "Hibiscus waimeae",
     "category": "native",
-    "price": 18,
-    "available": 15,
-    "image": "",
-    "description": "Iconic Hawaiian hardwood. Fast-growing native reforestation tree."
+    "price": 20,
+    "available": 2,
+    "image": "images/nursery/kokio.jpg",
+    "description": "A rare, fragrant white-flowering native hibiscus from Kauaʻi — seldom seen in cultivation and a standout in any native garden.",
+    "featured": false
   },
   {
     "name": "Kukui",
     "botanical": "Aleurites moluccanus",
     "category": "native",
-    "price": 20,
-    "available": 6,
-    "image": "",
-    "description": "The candlenut tree — Hawaiʻi state tree. Shade and cultural significance."
+    "price": 15,
+    "available": 14,
+    "image": "images/nursery/kukui.jpg",
+    "description": "The candlenut tree — Hawaiʻi's state tree. Fast-growing, culturally significant, and a generous provider of shade and living mulch.",
+    "featured": false
   },
   {
-    "name": "Māmaki",
-    "botanical": "Pipturus albidus",
+    "name": "Maʻo Hau Hele",
+    "botanical": "Hibiscus brackenridgei",
     "category": "native",
-    "price": 14,
-    "available": 18,
-    "image": "",
-    "description": "Endemic Hawaiian plant. Makes wonderful herbal tea."
+    "price": 15,
+    "available": 3,
+    "image": "images/nursery/mao-hau-hele.jpg",
+    "description": "Hawaiʻi's endangered state flower — a brilliant yellow native hibiscus and a meaningful addition to any restoration planting.",
+    "featured": false
   },
   {
-    "name": "Turmeric",
-    "botanical": "Curcuma longa",
-    "category": "herbs",
-    "price": 8,
-    "available": 25,
-    "image": "",
-    "description": "Fresh tropical turmeric. Far superior to dried."
-  },
-  {
-    "name": "Galangal",
-    "botanical": "Alpinia galanga",
+    "name": "Sugar Cane",
+    "botanical": "Saccharum officinarum",
     "category": "herbs",
     "price": 10,
-    "available": 12,
-    "image": "",
-    "description": "Thai ginger relative. Essential for Southeast Asian cooking."
+    "available": 18,
+    "image": "images/nursery/sugar-cane.jpg",
+    "description": "Two beloved heirloom varieties — Big Ribbon and Aina Kea — for chewing, juicing, or planting as a bold vertical accent.",
+    "featured": false
   },
   {
-    "name": "Lemongrass",
-    "botanical": "Cymbopogon citratus",
+    "name": "Yacon",
+    "botanical": "Smallanthus sonchifolius",
     "category": "herbs",
-    "price": 6,
-    "available": 30,
-    "image": "",
-    "description": "Fragrant culinary herb. Practically grows itself in Hawaiʻi."
+    "price": 7,
+    "available": 20,
+    "image": "images/nursery/yacon.jpg",
+    "description": "A Andean root vegetable that thrives in Hawaiʻi — crunchy, sweet, and low-glycemic. Digs itself out each season with no fuss.",
+    "featured": false
   },
   {
-    "name": "Vanilla",
-    "botanical": "Vanilla planifolia",
-    "category": "herbs",
-    "price": 35,
-    "available": 4,
-    "image": "",
-    "description": "Tropical orchid vine. Needs a host tree and patience."
-  },
-  {
-    "name": "Bird of Paradise",
-    "botanical": "Strelitzia reginae",
+    "name": "Areca Palm",
+    "botanical": "Dypsis lutescens",
     "category": "ornamental",
-    "price": 24,
-    "available": 9,
-    "image": "",
-    "description": "Iconic tropical flower. Dramatic orange and blue blooms."
+    "price": 25,
+    "available": 60,
+    "image": "images/nursery/areca-palm.jpg",
+    "description": "Graceful, clumping palm that creates instant tropical privacy. Thrives in full sun or dappled shade with little care once established.",
+    "featured": false
   },
   {
-    "name": "Plumeria",
-    "botanical": "Plumeria rubra",
+    "name": "Money Tree",
+    "botanical": "Pachira aquatica",
     "category": "ornamental",
     "price": 20,
-    "available": 14,
-    "image": "",
-    "description": "Classic lei flower. Fragrant and easy to grow."
-  },
-  {
-    "name": "Heliconia — Lobster Claw",
-    "botanical": "Heliconia rostrata",
-    "category": "ornamental",
-    "price": 22,
-    "available": 7,
-    "image": "",
-    "description": "Stunning hanging tropical flowers. Hummingbird magnet."
-  },
-  {
-    "name": "Sweet Potato",
-    "botanical": "Ipomoea batatas",
-    "category": "ground-cover",
-    "price": 4,
-    "available": 40,
-    "image": "",
-    "description": "Edible ground cover. Suppresses weeds, feeds families."
-  },
-  {
-    "name": "Pinto Peanut",
-    "botanical": "Arachis pintoi",
-    "category": "ground-cover",
-    "price": 5,
-    "available": 35,
-    "image": "",
-    "description": "Nitrogen-fixing living mulch. Yellow flowers, tough and spreading."
-  },
-  {
-    "name": "Comfrey",
-    "botanical": "Symphytum officinale",
-    "category": "ground-cover",
-    "price": 6,
-    "available": 20,
-    "image": "",
-    "description": "Dynamic accumulator and chop-and-drop mulch machine."
+    "available": 8,
+    "image": "images/nursery/money-tree.jpg",
+    "description": "The Malabar Chestnut, known across Asia as the Money Tree. Bold palmate leaves, edible seeds, and a reputation for good fortune.",
+    "featured": false
   }
 ]
