@@ -27,47 +27,7 @@
 
   <!-- Nursery Page Styles -->
   <style>
-    /* ── Nursery Page Hero ─────────────────────────────────── */
-    .nursery-hero {
-      background: linear-gradient(rgba(45, 90, 61, 0.55), rgba(45, 90, 61, 0.55)), url('images/headers/header-nursery.jpg') center center / cover no-repeat;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px 72px;
-      margin-top: 72px;
-    }
-    .nursery-hero__inner {
-      max-width: 680px;
-    }
-    .nursery-hero__title {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: 4.2rem;
-      color: var(--white);
-      margin-bottom: 20px;
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-    .nursery-hero__tagline {
-      font-family: var(--font-body);
-      font-size: 1.12rem;
-      color: #B8CDB8;
-      font-style: italic;
-      line-height: 1.7;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-    @media (max-width: 600px) {
-      .nursery-hero__title {
-        font-size: 2.8rem;
-      }
-      .nursery-hero {
-        padding: 60px 20px 56px;
-        min-height: 260px;
-      }
-    }
+    /* Nursery hero now uses the standard page-hero system from style.css */
 
     /* ── Nursery Intro ────────────────────────────────────── */
     .nursery-intro {
@@ -356,10 +316,11 @@
   <!-- ═══════════════════════════════════════════════════════
        PAGE HERO
        ═══════════════════════════════════════════════════════ -->
-  <section class="nursery-hero">
-    <div class="nursery-hero__inner">
-      <h1 class="nursery-hero__title">Nursery</h1>
-      <p class="nursery-hero__tagline">Rare varieties you won't find at a box store. Grown here and priced to get you planting.</p>
+  <section class="page-hero page-hero--overlay" style="background: linear-gradient(rgba(45, 90, 61, 0.55), rgba(45, 90, 61, 0.55)), url('images/headers/header-nursery.jpg') center center / cover no-repeat;">
+    <div class="page-hero__content">
+      <span class="page-hero__descriptor">OUR PLANTS</span>
+      <h1 class="page-hero__title">Nursery</h1>
+      <p class="page-hero__subtitle">Rare varieties you won't find at a box store. Grown here and priced to get you planting.</p>
     </div>
   </section>
 
