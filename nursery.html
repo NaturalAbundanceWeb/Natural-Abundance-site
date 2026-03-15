@@ -186,6 +186,234 @@
       color: #999;
     }
 
+    /* ── Reserve Button on Cards ─────────────────────────── */
+    .plant-card__reserve {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      margin-top: 14px;
+      padding: 10px 0;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--forest-green);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .plant-card__reserve:hover {
+      background: #1f4a2d;
+    }
+    .plant-card__reserve:disabled {
+      background: #ccc;
+      cursor: default;
+    }
+    .plant-card__qty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .plant-card__qty button {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      border: 1.5px solid var(--forest-green);
+      background: var(--white);
+      color: var(--forest-green);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .plant-card__qty span {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.95rem;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    /* ── Floating Cart Button ─────────────────────────────── */
+    .cart-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--golden-amber);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      z-index: 1000;
+      transition: transform 0.2s ease;
+    }
+    .cart-fab:hover { transform: scale(1.08); }
+    .cart-fab__count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--forest-green);
+      color: var(--white);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── Cart Panel ────────────────────────────────────────── */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 1001;
+      display: none;
+    }
+    .cart-panel {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 400px;
+      max-width: 90vw;
+      height: 100vh;
+      background: var(--cream);
+      z-index: 1002;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    }
+    .cart-panel.open { right: 0; }
+    .cart-panel__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 24px 16px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .cart-panel__title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--forest-green);
+    }
+    .cart-panel__close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--slate-teal);
+      padding: 4px;
+    }
+    .cart-panel__items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 24px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .cart-item__name {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--near-black);
+    }
+    .cart-item__detail {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--slate-teal);
+    }
+    .cart-item__remove {
+      background: none;
+      border: none;
+      color: #c44;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: var(--font-ui);
+    }
+    .cart-panel__footer {
+      padding: 20px 24px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      background: var(--white);
+    }
+    .cart-summary {
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      color: var(--near-black);
+      margin-bottom: 8px;
+    }
+    .cart-summary strong {
+      font-weight: 700;
+    }
+    .cart-delivery {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      color: var(--forest-green);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .cart-venmo {
+      display: block;
+      width: 100%;
+      padding: 14px 0;
+      text-align: center;
+      background: #008CFF;
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .cart-venmo:hover { background: #006fcc; }
+    .cart-note {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      color: var(--slate-teal);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    /* ── Delivery Banner ──────────────────────────────────── */
+    .delivery-banner {
+      background: var(--forest-green);
+      color: var(--white);
+      text-align: center;
+      padding: 14px 24px;
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
     /* ── Empty State ───────────────────────────────────────── */
     .inventory-empty {
       text-align: center;
@@ -328,6 +556,11 @@
   <!-- ═══════════════════════════════════════════════════════
        NURSERY INTRO
        ═══════════════════════════════════════════════════════ -->
+  <!-- Delivery Banner -->
+  <div class="delivery-banner">
+    Free delivery to Hamakua Coast and Hilo on orders over $200
+  </div>
+
   <section class="nursery-intro fade-up">
     <hr class="accent-line">
     <p>
@@ -462,6 +695,37 @@
     </div>
   </footer>
 
+
+  <!-- Floating Cart Button -->
+  <button class="cart-fab" id="cartFab" aria-label="View reservation cart">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    <span class="cart-fab__count" id="cartCount">0</span>
+  </button>
+
+  <!-- Cart Overlay & Panel -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-panel__header">
+      <span class="cart-panel__title">Your Reservation</span>
+      <button class="cart-panel__close" id="cartClose" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-panel__items" id="cartItems">
+      <p style="color: var(--slate-teal); font-size: 0.9rem;">No plants selected yet.</p>
+    </div>
+    <div class="cart-panel__footer" id="cartFooter" style="display:none;">
+      <div class="cart-summary" id="cartSummary"></div>
+      <div class="cart-delivery" id="cartDelivery" style="display:none;">
+        Qualifies for free delivery to Hamakua Coast &amp; Hilo!
+      </div>
+      <a class="cart-venmo" id="cartVenmo" href="#" target="_blank">
+        Pay Deposit with Venmo
+      </a>
+      <p class="cart-note">
+        Deposit holds your plants for 7 days. Balance due at pickup.
+        You'll receive a confirmation from Natural Abundance within 24 hours.
+      </p>
+    </div>
+  </div>
 
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
@@ -608,13 +872,94 @@
 
 
     /* ══════════════════════════════════════════════════════
+       RESERVATION CART
+       ══════════════════════════════════════════════════════ */
+    const cart = {};  // { plantName: { qty, price } }
+
+    const cartFab = document.getElementById('cartFab');
+    const cartCount = document.getElementById('cartCount');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartPanel = document.getElementById('cartPanel');
+    const cartClose = document.getElementById('cartClose');
+    const cartItems = document.getElementById('cartItems');
+    const cartFooter = document.getElementById('cartFooter');
+    const cartSummary = document.getElementById('cartSummary');
+    const cartDelivery = document.getElementById('cartDelivery');
+    const cartVenmo = document.getElementById('cartVenmo');
+
+    function updateCart() {
+      const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
+      const totalItems = entries.reduce((s,[,v]) => s + v.qty, 0);
+      const totalPrice = entries.reduce((s,[,v]) => s + v.qty * v.price, 0);
+      const deposit = Math.max(20, Math.ceil(totalPrice * 0.25));
+
+      // FAB
+      cartFab.style.display = totalItems > 0 ? 'flex' : 'none';
+      cartCount.textContent = totalItems;
+
+      // Cart items
+      if (entries.length === 0) {
+        cartItems.innerHTML = '<p style="color: var(--slate-teal); font-size: 0.9rem;">No plants selected yet.</p>';
+        cartFooter.style.display = 'none';
+        return;
+      }
+
+      cartItems.innerHTML = entries.map(([name, v]) => `
+        <div class="cart-item">
+          <div>
+            <div class="cart-item__name">${name} x${v.qty}</div>
+            <div class="cart-item__detail">$${v.price} each &mdash; $${v.qty * v.price}</div>
+          </div>
+          <button class="cart-item__remove" data-name="${name}">Remove</button>
+        </div>
+      `).join('');
+
+      cartItems.querySelectorAll('.cart-item__remove').forEach(btn => {
+        btn.addEventListener('click', () => {
+          delete cart[btn.dataset.name];
+          updateCart();
+          renderPlants(document.querySelector('.nursery-tab.active').dataset.category);
+        });
+      });
+
+      cartFooter.style.display = 'block';
+      cartSummary.innerHTML = `
+        <div style="margin-bottom:6px;">Subtotal: <strong>$${totalPrice}</strong></div>
+        <div>Deposit due now: <strong>$${deposit}</strong></div>
+        <div style="font-size:0.78rem;color:var(--slate-teal);margin-top:4px;">
+          Remaining $${totalPrice - deposit} due at pickup
+        </div>
+      `;
+
+      // Free delivery
+      cartDelivery.style.display = totalPrice >= 200 ? 'block' : 'none';
+
+      // Venmo link
+      const note = encodeURIComponent('Natural Abundance plant reservation - ' + entries.map(([n,v]) => `${n} x${v.qty}`).join(', '));
+      cartVenmo.href = `https://venmo.com/NaturalAbundanceHawaii?txn=pay&amount=${deposit}&note=${note}`;
+    }
+
+    function openCart() {
+      cartOverlay.style.display = 'block';
+      cartPanel.classList.add('open');
+    }
+    function closeCart() {
+      cartOverlay.style.display = 'none';
+      cartPanel.classList.remove('open');
+    }
+
+    cartFab.addEventListener('click', openCart);
+    cartOverlay.addEventListener('click', closeCart);
+    cartClose.addEventListener('click', closeCart);
+
+
+    /* ══════════════════════════════════════════════════════
        RENDER LOGIC
        ══════════════════════════════════════════════════════ */
     const grid = document.getElementById('inventoryGrid');
     const empty = document.getElementById('inventoryEmpty');
     const tabs = document.querySelectorAll('.nursery-tab');
 
-    // Leaf SVG for placeholder
     const leafSVG = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>`;
 
     function getAvailLabel(count) {
@@ -643,6 +988,18 @@
         const imgBlock = plant.image
           ? `<img class="plant-card__img" src="${plant.image}" alt="${plant.name}" loading="lazy"${imgStyle}>`
           : `<div class="plant-card__img-placeholder">${leafSVG}</div>`;
+        const inCart = cart[plant.name] ? cart[plant.name].qty : 0;
+        const soldOut = plant.available === 0;
+
+        const reserveBlock = soldOut
+          ? `<button class="plant-card__reserve" disabled>Sold Out</button>`
+          : inCart > 0
+            ? `<div class="plant-card__qty">
+                <button class="qty-btn" data-name="${plant.name}" data-action="minus">&minus;</button>
+                <span>${inCart}</span>
+                <button class="qty-btn" data-name="${plant.name}" data-action="plus" ${inCart >= plant.available ? 'disabled' : ''}>&plus;</button>
+              </div>`
+            : `<button class="plant-card__reserve" data-name="${plant.name}" data-price="${plant.price}" data-max="${plant.available}">Reserve</button>`;
 
         return `
           <div class="plant-card">
@@ -655,10 +1012,36 @@
                 <span class="plant-card__price">$${plant.price}</span>
                 <span class="plant-card__avail ${avail.cls}">${avail.text}</span>
               </div>
+              ${reserveBlock}
             </div>
           </div>
         `;
       }).join('');
+
+      // Bind reserve buttons
+      grid.querySelectorAll('.plant-card__reserve:not([disabled])').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          cart[name] = { qty: 1, price: parseInt(btn.dataset.price) };
+          updateCart();
+          renderPlants(category);
+        });
+      });
+
+      // Bind qty buttons
+      grid.querySelectorAll('.qty-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.name;
+          if (btn.dataset.action === 'plus') {
+            cart[name].qty++;
+          } else {
+            cart[name].qty--;
+            if (cart[name].qty <= 0) delete cart[name];
+          }
+          updateCart();
+          renderPlants(category);
+        });
+      });
     }
 
     // Tab switching
@@ -674,7 +1057,7 @@
       });
     });
 
-    // Initial render — wrapped in try/catch to prevent blank page on JS error
+    // Initial render
     try {
       renderPlants('all');
     } catch(e) {
