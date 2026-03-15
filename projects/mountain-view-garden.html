@@ -10,6 +10,12 @@
     .project-detail { max-width: 900px; margin: 0 auto; }
     .project-detail p { font-size: 1.05rem; line-height: 1.8; }
     .photo-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 3rem 0; }
+    .photo-progression { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 3rem 0; }
+    .photo-progression__item { border-radius: var(--radius); overflow: hidden; }
+    .photo-progression__item img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
+    @media (max-width: 768px) {
+      .photo-progression { grid-template-columns: 1fr; }
+    }
     .photo-comparison__item { border-radius: var(--radius); overflow: hidden; }
     .photo-comparison__item img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; }
     .photo-comparison__label {
@@ -124,30 +130,19 @@
           </ul>
         </div>
 
-        <h3>Before &amp; After</h3>
-        <div class="photo-comparison">
-          <div class="photo-comparison__item">
-            <span class="photo-comparison__label">Before</span>
-            <img src="../images/projects/mountain-view-garden/before-1.jpg" alt="Mountain View Garden before — damaged ground with invasive grass">
-            <p class="photo-comparison__caption">Machinery-damaged ground overrun with California grass.</p>
+        <h3>Progression</h3>
+        <div class="photo-progression">
+          <div class="photo-progression__item">
+            <span class="photo-comparison__label">Day 1</span>
+            <img src="../images/projects/mountain-view-garden/center-bed-1.jpg" alt="Center bed — raw mulch mounds with young transplants by the dome">
           </div>
-          <div class="photo-comparison__item">
-            <span class="photo-comparison__label">After</span>
-            <img src="../images/projects/mountain-view-garden/after-1.jpg" alt="Mountain View Garden after — thriving edible garden">
-            <p class="photo-comparison__caption">Thriving edible and flowering garden, just months after planting.</p>
+          <div class="photo-progression__item">
+            <span class="photo-comparison__label">Growing In</span>
+            <img src="../images/projects/mountain-view-garden/center-bed-2.jpg" alt="Center bed — flowers and edibles filling in around the dome">
           </div>
-        </div>
-
-        <div class="photo-comparison">
-          <div class="photo-comparison__item">
-            <span class="photo-comparison__label">Before</span>
-            <img src="../images/projects/mountain-view-garden/before-2.jpg" alt="Mountain View Garden before — raw compost mounds with sparse planting">
-            <p class="photo-comparison__caption">Freshly built hugelkultur mounds with young transplants.</p>
-          </div>
-          <div class="photo-comparison__item">
-            <span class="photo-comparison__label">After</span>
-            <img src="../images/projects/mountain-view-garden/after-2.jpg" alt="Mountain View Garden after — established plantings under dome">
-            <p class="photo-comparison__caption">Established plantings filling in around the dome with healthy coverage.</p>
+          <div class="photo-progression__item">
+            <span class="photo-comparison__label">Established</span>
+            <img src="../images/projects/mountain-view-garden/center-bed-3.jpg" alt="Center bed — dense multi-layered garden nearly obscuring the dome">
           </div>
         </div>
 
