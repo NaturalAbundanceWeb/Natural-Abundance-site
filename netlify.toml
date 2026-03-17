@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+
+[context.deploy-preview]
+  # Deploy previews for all branches except main
+  # These are FREE — no credits consumed
+
+[context.branch-deploy]
+  # Branch deploys also free
