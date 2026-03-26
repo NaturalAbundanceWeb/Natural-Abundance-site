@@ -402,6 +402,64 @@
       line-height: 1.5;
     }
 
+    /* ── Checkout Contact Form ─────────────────────────── */
+    .checkout-form {
+      display: none;
+      padding: 0;
+    }
+    .checkout-form.active {
+      display: block;
+    }
+    .checkout-form__intro {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--slate-teal);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .checkout-form label {
+      display: block;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--forest-green);
+      margin-bottom: 4px;
+    }
+    .checkout-form input {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--near-black);
+      background: var(--white);
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+    }
+    .checkout-form input:focus {
+      outline: none;
+      border-color: var(--forest-green);
+    }
+    .checkout-form__back {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--slate-teal);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      margin-top: 10px;
+      text-decoration: underline;
+    }
+    .checkout-form__back:hover {
+      color: var(--forest-green);
+    }
+
     /* ── Delivery Banner ──────────────────────────────────── */
     .delivery-banner {
       background: var(--forest-green);
@@ -713,17 +771,41 @@
       <p style="color: var(--slate-teal); font-size: 0.9rem;">No plants selected yet.</p>
     </div>
     <div class="cart-panel__footer" id="cartFooter" style="display:none;">
-      <div class="cart-summary" id="cartSummary"></div>
-      <div class="cart-delivery" id="cartDelivery" style="display:none;">
-        Qualifies for free delivery to Hamakua Coast &amp; Hilo!
+      <div id="cartCheckoutStep1">
+        <div class="cart-summary" id="cartSummary"></div>
+        <div class="cart-delivery" id="cartDelivery" style="display:none;">
+          Qualifies for free delivery to Hamakua Coast &amp; Hilo!
+        </div>
+        <button class="cart-venmo" id="cartCheckoutBtn">
+          Continue to Checkout
+        </button>
+        <p class="cart-note">
+          Deposit holds your plants for 7 days. Balance due at pickup.
+        </p>
       </div>
-      <a class="cart-venmo" id="cartVenmo" href="#" target="_blank">
-        Pay Deposit with Venmo
-      </a>
-      <p class="cart-note">
-        Deposit holds your plants for 7 days. Balance due at pickup.
-        You'll receive a confirmation from Natural Abundance within 24 hours.
-      </p>
+
+      <div class="checkout-form" id="cartCheckoutStep2">
+        <p class="checkout-form__intro">Enter your contact info so we can confirm your order and schedule pickup or delivery.</p>
+        <form id="checkoutContactForm" name="nursery-order" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="nursery-order">
+          <input type="hidden" name="order-items" id="checkoutItems">
+          <input type="hidden" name="order-subtotal" id="checkoutSubtotal">
+          <input type="hidden" name="order-deposit" id="checkoutDeposit">
+          <label for="checkout-name">Name</label>
+          <input type="text" id="checkout-name" name="name" required placeholder="Your name">
+          <label for="checkout-phone">Phone</label>
+          <input type="tel" id="checkout-phone" name="phone" required placeholder="(808) 555-0000">
+          <label for="checkout-email">Email</label>
+          <input type="email" id="checkout-email" name="email" required placeholder="your@email.com">
+          <button type="submit" class="cart-venmo" style="margin-top: 4px;">
+            Pay Deposit with Venmo
+          </button>
+        </form>
+        <button class="checkout-form__back" id="checkoutBack">&larr; Back to cart</button>
+        <p class="cart-note" style="margin-top: 8px;">
+          You'll be redirected to Venmo to pay your deposit. We'll confirm your order within 24 hours.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -946,7 +1028,74 @@
     function closeCart() {
       cartOverlay.style.display = 'none';
       cartPanel.classList.remove('open');
+      // Reset to step 1 when closing
+      checkoutStep2.classList.remove('active');
+      checkoutStep1.style.display = 'block';
     }
+
+    // Checkout flow elements
+    const checkoutBtn = document.getElementById('cartCheckoutBtn');
+    const checkoutStep1 = document.getElementById('cartCheckoutStep1');
+    const checkoutStep2 = document.getElementById('cartCheckoutStep2');
+    const checkoutBack = document.getElementById('checkoutBack');
+    const checkoutForm = document.getElementById('checkoutContactForm');
+    const checkoutItemsInput = document.getElementById('checkoutItems');
+    const checkoutSubtotalInput = document.getElementById('checkoutSubtotal');
+    const checkoutDepositInput = document.getElementById('checkoutDeposit');
+
+    // Show checkout form
+    checkoutBtn.addEventListener('click', function() {
+      const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
+      const totalPrice = entries.reduce((s,[,v]) => s + v.qty * v.price, 0);
+      const deposit = Math.max(20, Math.ceil(totalPrice * 0.25));
+      const itemsSummary = entries.map(([n,v]) => n + ' x' + v.qty).join(', ');
+
+      checkoutItemsInput.value = itemsSummary;
+      checkoutSubtotalInput.value = '$' + totalPrice;
+      checkoutDepositInput.value = '$' + deposit;
+
+      checkoutStep1.style.display = 'none';
+      checkoutStep2.classList.add('active');
+    });
+
+    // Back to cart
+    checkoutBack.addEventListener('click', function() {
+      checkoutStep2.classList.remove('active');
+      checkoutStep1.style.display = 'block';
+    });
+
+    // Form submit → Netlify, then redirect to Venmo
+    checkoutForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(checkoutForm);
+
+      // Submit to Netlify
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      }).then(function() {
+        // Redirect to Venmo
+        const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
+        const totalPrice = entries.reduce((s,[,v]) => s + v.qty * v.price, 0);
+        const deposit = Math.max(20, Math.ceil(totalPrice * 0.25));
+        const note = encodeURIComponent('Natural Abundance plant reservation - ' + entries.map(([n,v]) => n + ' x' + v.qty).join(', '));
+        window.open('https://venmo.com/NaturalAbundanceHawaii?txn=pay&amount=' + deposit + '&note=' + note, '_blank');
+
+        // Reset cart
+        Object.keys(cart).forEach(function(k) { delete cart[k]; });
+        updateCart();
+        checkoutStep2.classList.remove('active');
+        checkoutStep1.style.display = 'block';
+        checkoutForm.reset();
+        closeCart();
+
+        // Show thank you
+        alert('Thank you! Your order has been submitted. You\u2019ll receive a confirmation within 24 hours.');
+      }).catch(function() {
+        alert('Something went wrong submitting your info. Please call us at (530) 748-8158 to complete your order.');
+      });
+    });
 
     cartFab.addEventListener('click', openCart);
     cartOverlay.addEventListener('click', closeCart);
