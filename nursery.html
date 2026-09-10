@@ -326,10 +326,13 @@
       padding: 4px;
     }
     .cart-panel__items {
-      flex: 1;
+      flex: 1 1 auto;
+      min-height: 0;
       overflow-y: auto;
       padding: 16px 24px;
     }
+    /* During checkout the form takes the panel; the items list steps aside */
+    .cart-panel.checkout-active .cart-panel__items { display: none; }
     .cart-item {
       display: flex;
       justify-content: space-between;
@@ -357,6 +360,10 @@
       font-family: var(--font-ui);
     }
     .cart-panel__footer {
+      flex: 0 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
       padding: 20px 24px;
       border-top: 1px solid rgba(0,0,0,0.08);
       background: var(--white);
@@ -460,6 +467,166 @@
     .checkout-form__back:hover {
       color: var(--forest-green);
     }
+
+    /* ── Fulfillment Options ───────────────────────────── */
+    .fulfill-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 10px;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 6px;
+      background: var(--white);
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .fulfill-option:hover { border-color: var(--forest-green); }
+    .fulfill-option.selected {
+      border-color: var(--forest-green);
+      background: rgba(45, 90, 61, 0.06);
+    }
+    .fulfill-option.locked {
+      background: var(--warm-sand);
+      opacity: 0.72;
+    }
+    .fulfill-option__box {
+      flex: 0 0 auto;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      border: 2px solid var(--slate-teal);
+      border-radius: 3px;
+      background: var(--white);
+      position: relative;
+    }
+    .fulfill-option.selected .fulfill-option__box {
+      background: var(--forest-green);
+      border-color: var(--forest-green);
+    }
+    .fulfill-option.selected .fulfill-option__box::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 1px;
+      width: 5px;
+      height: 10px;
+      border: solid var(--white);
+      border-width: 0 2.5px 2.5px 0;
+      transform: rotate(45deg);
+    }
+    .fulfill-option__label {
+      display: block;
+      font-family: var(--font-ui);
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--near-black);
+      margin-bottom: 3px;
+    }
+    .fulfill-option__sub {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: var(--slate-teal);
+      line-height: 1.5;
+    }
+    .fulfill-option__sub strong { color: var(--forest-green); }
+    .fulfill-locked-msg {
+      display: none;
+      background: var(--warm-sand);
+      border-left: 3px solid var(--golden-amber);
+      padding: 10px 12px;
+      margin: -2px 0 14px;
+      border-radius: 0 4px 4px 0;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: var(--near-black);
+      line-height: 1.55;
+    }
+    .fulfill-locked-msg.show { display: block; }
+
+    /* ── Revealed Checkout Fields ──────────────────────── */
+    .checkout-fields { display: none; }
+    .checkout-fields.show { display: block; }
+    .checkout-form select,
+    .checkout-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      border: 1.5px solid rgba(0,0,0,0.12);
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--near-black);
+      background: var(--white);
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+    .checkout-form select:focus,
+    .checkout-form textarea:focus {
+      outline: none;
+      border-color: var(--forest-green);
+    }
+    .checkout-form textarea {
+      resize: vertical;
+      min-height: 64px;
+      line-height: 1.5;
+    }
+    .checkout-hint {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      color: var(--slate-teal);
+      margin: -6px 0 16px;
+      line-height: 1.55;
+    }
+    .checkout-error {
+      display: none;
+      background: #FBEFEF;
+      border-left: 3px solid #B4453C;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      border-radius: 0 4px 4px 0;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      color: #8A332C;
+      line-height: 1.5;
+    }
+    .checkout-error.show { display: block; }
+
+    /* ── Confirmation Step ─────────────────────────────── */
+    .checkout-done { display: none; }
+    .checkout-done.active { display: block; }
+    .checkout-done__title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--forest-green);
+      margin-bottom: 10px;
+    }
+    .checkout-done__accent {
+      width: 50px;
+      height: 2.5px;
+      background: var(--golden-amber);
+      margin-bottom: 14px;
+    }
+    .checkout-done__body {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      color: var(--slate-teal);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .checkout-done__recap {
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      color: var(--near-black);
+      line-height: 1.75;
+    }
+    .checkout-done__recap strong { color: var(--forest-green); }
 
     /* ── Delivery Banner ──────────────────────────────────── */
     .delivery-banner {
@@ -786,26 +953,82 @@
       </div>
 
       <div class="checkout-form" id="cartCheckoutStep2">
-        <p class="checkout-form__intro">Enter your contact info so we can confirm your order and schedule pickup or delivery.</p>
-        <form id="checkoutContactForm" name="nursery-order" method="POST" data-netlify="true">
+        <p class="checkout-form__intro">Choose how you'd like to get your plants, then leave your info so we can confirm.</p>
+        <div class="checkout-done__recap" id="checkoutSummary" style="margin-bottom: 18px;"></div>
+        <form id="checkoutContactForm" name="nursery-order" method="POST" data-netlify="true" novalidate>
           <input type="hidden" name="form-name" value="nursery-order">
           <input type="hidden" name="order-items" id="checkoutItems">
           <input type="hidden" name="order-subtotal" id="checkoutSubtotal">
           <input type="hidden" name="order-deposit" id="checkoutDeposit">
-          <label for="checkout-name">Name</label>
-          <input type="text" id="checkout-name" name="name" required placeholder="Your name">
-          <label for="checkout-phone">Phone</label>
-          <input type="tel" id="checkout-phone" name="phone" required placeholder="(808) 555-0000">
-          <label for="checkout-email">Email</label>
-          <input type="email" id="checkout-email" name="email" required placeholder="your@email.com">
-          <button type="submit" class="cart-venmo" style="margin-top: 4px;">
-            Pay Deposit with Venmo
-          </button>
+          <input type="hidden" name="fulfillment" id="checkoutFulfillment">
+
+          <label style="margin-bottom: 8px;">How would you like to receive your plants?</label>
+
+          <div class="fulfill-option" id="optPickup" data-method="pickup" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="fulfill-option__box"></span>
+            <span>
+              <span class="fulfill-option__label">Meet at Hilo Home Depot</span>
+              <span class="fulfill-option__sub"><strong>Free on any order.</strong> We meet you in the parking lot with your plants.</span>
+            </span>
+          </div>
+
+          <div class="fulfill-option" id="optDelivery" data-method="delivery" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="fulfill-option__box"></span>
+            <span>
+              <span class="fulfill-option__label">Delivery within Hamakua or Hilo</span>
+              <span class="fulfill-option__sub"><strong>Free on orders over $200.</strong> We bring everything to your place.</span>
+            </span>
+          </div>
+
+          <div class="fulfill-locked-msg" id="deliveryLockedMsg"></div>
+
+          <div class="checkout-fields" id="checkoutFields">
+            <div class="checkout-error" id="checkoutError"></div>
+
+            <label for="checkout-window">Preferred day &amp; time</label>
+            <select id="checkout-window" name="delivery-window">
+              <option value="">Loading available times…</option>
+            </select>
+            <p class="checkout-hint">We run Saturday mornings and Thursday afternoons. Other delivery or meet-up times are available on request &mdash; just tell us below.</p>
+
+            <label for="checkout-name">Name</label>
+            <input type="text" id="checkout-name" name="name" placeholder="Your name">
+
+            <label for="checkout-phone">Phone</label>
+            <input type="tel" id="checkout-phone" name="phone" placeholder="(808) 555-0000">
+
+            <label for="checkout-email">Email</label>
+            <input type="email" id="checkout-email" name="email" placeholder="your@email.com">
+
+            <div id="addressWrap" style="display: none;">
+              <label for="checkout-address">Delivery address</label>
+              <input type="text" id="checkout-address" name="delivery-address" placeholder="Street and town">
+            </div>
+
+            <label for="checkout-notes">Anything else? <span style="text-transform: none; font-weight: 400;">(optional)</span></label>
+            <textarea id="checkout-notes" name="order-notes" placeholder="Need a different day or time? Gate code? Let us know."></textarea>
+
+            <button type="submit" class="cart-venmo" id="checkoutSubmitBtn" style="margin-top: 4px;">
+              Submit Order
+            </button>
+          </div>
         </form>
         <button class="checkout-form__back" id="checkoutBack">&larr; Back to cart</button>
         <p class="cart-note" style="margin-top: 8px;">
-          You'll be redirected to Venmo to pay your deposit. We'll confirm your order within 24 hours.
+          Nothing is charged here. After you submit, you'll get a confirmation email and a link to pay your deposit by Venmo.
         </p>
+      </div>
+
+      <div class="checkout-done" id="cartCheckoutStep3">
+        <div class="checkout-done__title">Order received</div>
+        <div class="checkout-done__accent"></div>
+        <p class="checkout-done__body" id="doneIntro"></p>
+        <div class="checkout-done__recap" id="doneRecap"></div>
+        <a class="cart-venmo" id="doneVenmo" href="#" target="_blank" rel="noopener">Pay Deposit with Venmo</a>
+        <p class="cart-note">
+          Deposit holds your plants for 7 days. Balance due when you get them. We'll confirm your day and time by email.
+        </p>
+        <button class="checkout-form__back" id="doneClose">Close</button>
       </div>
     </div>
   </div>
@@ -819,145 +1042,23 @@
   (function() {
     'use strict';
 
-    /* ══════════════════════════════════════════════════════
-       INVENTORY DATA
-       Edit this array to update your nursery inventory.
-       Each entry needs: name, category, price, available.
-       Optional: botanical, image (path to photo), description.
 
-       Categories: fruit-trees, native, herbs, ornamental, ground-cover
+    /* ══════════════════════════════════════════════════════
+       INVENTORY — loaded from data/inventory.json
+       To update: tell Dispatch "sold 3 soursop" or
+       "added 10 starfruit at $25". Don't edit this file.
        ══════════════════════════════════════════════════════ */
-    const inventory = [
-      // ── Fruit Trees ──────────────────────────────────
-      {
-        name: "Soursop",
-        botanical: "Annona muricata",
-        category: "fruit-trees",
-        price: 20,
-        available: 14,
-        image: "images/nursery/soursop.jpg",
-        description: "Tropical fruit prized across the Pacific for its creamy, tangy flesh \u2014 a natural fit for Hawai\u02bbi's warm, wet climate.",
-      },
-      {
-        name: "Mulberry",
-        botanical: "Morus sp.",
-        category: "fruit-trees",
-        price: 15,
-        available: 4,
-        image: "images/nursery/mulberry.jpg",
-        description: "Fast-fruiting and generous \u2014 mulberry produces abundant sweet-tart berries while feeding birds and building soil beneath its canopy.",
-      },
-      {
-        name: "Bolivian Mangosteen",
-        botanical: "Garcinia boliviana",
-        category: "fruit-trees",
-        price: 55,
-        available: 1,
-        image: "images/nursery/bolivian-mangosteen.jpg",
-        imagePosition: "40%",
-        description: "Rare lemondrop mangosteen \u2014 a truly exceptional find. Jewel-bright fruit with a citrusy-sweet flavor unlike anything at the grocery store.",
-      },
-      {
-        name: "Cacao",
-        botanical: "Theobroma cacao",
-        category: "fruit-trees",
-        price: 15,
-        available: 16,
-        image: "images/nursery/cacao.jpg",
-        description: "Grow your own chocolate. Cacao thrives in the dappled shade of a food forest and rewards patience with some of the most valuable pods on earth.",
-      },
-      {
-        name: "Ackee",
-        botanical: "Blighia sapida",
-        category: "fruit-trees",
-        price: 45,
-        available: 30,
-        image: "images/nursery/ackee.jpg",
-        description: "Jamaica's national fruit and one of the most striking trees in the tropical landscape \u2014 brilliant red pods splitting open to reveal golden arils.",
-        featured: true,
-      },
-      // ── Native Plants ────────────────────────────────
-      {
-        name: "Ma\u02bbo Hau Hele",
-        botanical: "Hibiscus brackenridgei",
-        category: "native",
-        price: 15,
-        available: 3,
-        image: "images/nursery/mao-hau-hele.jpg",
-        description: "Hawai\u02bbi's endangered state flower \u2014 a brilliant yellow native hibiscus and a meaningful addition to any restoration planting.",
-      },
-      {
-        name: "Koki'o ke'o ke'o",
-        botanical: "Hibiscus waimeae",
-        category: "native",
-        price: 20,
-        available: 2,
-        image: "images/nursery/kokio.jpg",
-        description: "A rare, fragrant white-flowering native hibiscus from Kaua\u02bbi \u2014 seldom seen in cultivation and a standout in any native garden.",
-      },
-      {
-        name: "Gliricidia",
-        botanical: "Gliricidia sepium",
-        category: "support",
-        price: 25,
-        available: 8,
-        image: "images/nursery/gliricidia.jpg",
-        description: "Madre de Cacao \u2014 a champion nitrogen-fixer and chop-and-drop mulch tree that feeds the whole system while shading young fruit trees.",
-      },
-      {
-        name: "Kukui",
-        botanical: "Aleurites moluccanus",
-        category: "native",
-        price: 15,
-        available: 14,
-        image: "images/nursery/kukui.jpg",
-        description: "The candlenut tree \u2014 Hawai\u02bbi's state tree. Fast-growing, culturally significant, and a generous provider of shade and living mulch.",
-      },
-      // ── Other Edibles ─────────────────────────────────
-      {
-        name: "Sugar Cane",
-        botanical: "Saccharum officinarum",
-        category: "other-edibles",
-        price: 10,
-        available: 18,
-        image: "images/nursery/sugar-cane.jpg",
-        description: "Two beloved heirloom varieties \u2014 Big Ribbon and Aina Kea \u2014 for chewing, juicing, or planting as a bold vertical accent.",
-      },
-      {
-        name: "Yacon",
-        botanical: "Smallanthus sonchifolius",
-        category: "other-edibles",
-        price: 7,
-        available: 20,
-        image: "images/nursery/yacon.jpg",
-        description: "An Andean root vegetable that thrives in Hawai\u02bbi \u2014 crunchy, sweet, and low-glycemic. Digs itself out each season with no fuss.",
-      },
-      // ── Flowers ──────────────────────────────────────
-      {
-        name: "Areca Palm",
-        botanical: "Dypsis lutescens",
-        category: "flowers",
-        price: 25,
-        available: 60,
-        image: "images/nursery/areca-palm.jpg",
-        description: "Graceful, clumping palm that creates instant tropical privacy. Thrives in full sun or dappled shade with little care once established.",
-      },
-      {
-        name: "Money Tree",
-        botanical: "Pachira aquatica",
-        category: "fruit-trees",
-        price: 20,
-        available: 8,
-        image: "images/nursery/money-tree.jpg",
-        description: "The Malabar Chestnut, known across Asia as the Money Tree. Bold palmate leaves, edible seeds, and a reputation for good fortune.",
-      },
-    ];
+    let inventory = [];
+
 
 
     /* ══════════════════════════════════════════════════════
        RESERVATION CART
        ══════════════════════════════════════════════════════ */
     const cart = {};  // { plantName: { qty, price } }
+
+    // Free delivery threshold — delivery is only offered above this
+    const DELIVERY_MINIMUM = 200;
 
     const cartFab = document.getElementById('cartFab');
     const cartCount = document.getElementById('cartCount');
@@ -968,7 +1069,6 @@
     const cartFooter = document.getElementById('cartFooter');
     const cartSummary = document.getElementById('cartSummary');
     const cartDelivery = document.getElementById('cartDelivery');
-    const cartVenmo = document.getElementById('cartVenmo');
 
     function updateCart() {
       const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
@@ -1015,11 +1115,10 @@
       `;
 
       // Free delivery
-      cartDelivery.style.display = totalPrice >= 200 ? 'block' : 'none';
+      cartDelivery.style.display = totalPrice >= DELIVERY_MINIMUM ? 'block' : 'none';
 
-      // Venmo link
-      const note = encodeURIComponent('Natural Abundance plant reservation - ' + entries.map(([n,v]) => `${n} x${v.qty}`).join(', '));
-      cartVenmo.href = `https://venmo.com/NaturalAbundanceHawaii?txn=pay&amount=${deposit}&note=${note}`;
+      // Keep the delivery option's availability in sync with the cart total
+      refreshDeliveryLock();
     }
 
     function openCart() {
@@ -1031,72 +1130,291 @@
       cartPanel.classList.remove('open');
       // Reset to step 1 when closing
       checkoutStep2.classList.remove('active');
+      checkoutStep3.classList.remove('active');
       checkoutStep1.style.display = 'block';
+      cartPanel.classList.remove('checkout-active');
+      cartFooter.style.display = Object.keys(cart).length ? 'block' : 'none';
+      resetCheckoutForm();
     }
 
-    // Checkout flow elements
+    /* ══════════════════════════════════════════════════════
+       CHECKOUT — fulfillment, scheduling, submission
+       ══════════════════════════════════════════════════════ */
     const checkoutBtn = document.getElementById('cartCheckoutBtn');
     const checkoutStep1 = document.getElementById('cartCheckoutStep1');
     const checkoutStep2 = document.getElementById('cartCheckoutStep2');
+    const checkoutStep3 = document.getElementById('cartCheckoutStep3');
     const checkoutBack = document.getElementById('checkoutBack');
     const checkoutForm = document.getElementById('checkoutContactForm');
     const checkoutItemsInput = document.getElementById('checkoutItems');
     const checkoutSubtotalInput = document.getElementById('checkoutSubtotal');
     const checkoutDepositInput = document.getElementById('checkoutDeposit');
+    const fulfillmentInput = document.getElementById('checkoutFulfillment');
+    const optPickup = document.getElementById('optPickup');
+    const optDelivery = document.getElementById('optDelivery');
+    const deliveryLockedMsg = document.getElementById('deliveryLockedMsg');
+    const checkoutFields = document.getElementById('checkoutFields');
+    const addressWrap = document.getElementById('addressWrap');
+    const windowSelect = document.getElementById('checkout-window');
+    const checkoutError = document.getElementById('checkoutError');
+    const submitBtn = document.getElementById('checkoutSubmitBtn');
 
-    // Show checkout form
-    checkoutBtn.addEventListener('click', function() {
+    const FULFILLMENT_LABELS = {
+      pickup: 'Meet at Hilo Home Depot',
+      delivery: 'Delivery within Hamakua or Hilo'
+    };
+    let fulfillment = null;
+
+    function cartTotals() {
       const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
       const totalPrice = entries.reduce((s,[,v]) => s + v.qty * v.price, 0);
-      const deposit = Math.max(20, Math.ceil(totalPrice * 0.25));
-      const itemsSummary = entries.map(([n,v]) => n + ' x' + v.qty).join(', ');
+      return {
+        entries: entries,
+        totalPrice: totalPrice,
+        deposit: Math.max(20, Math.ceil(totalPrice * 0.25)),
+        summary: entries.map(([n,v]) => n + ' x' + v.qty).join(', ')
+      };
+    }
 
-      checkoutItemsInput.value = itemsSummary;
-      checkoutSubtotalInput.value = '$' + totalPrice;
-      checkoutDepositInput.value = '$' + deposit;
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function(c) {
+        return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+      });
+    }
+
+    /* Next available Saturday-morning and Thursday-afternoon windows.
+       Slots start at least 24 hours out so there's time to pull the order. */
+    function buildWindows() {
+      const SLOTS = [
+        { day: 4, part: 'afternoon', time: '1:00–4:00 pm', hour: 13 },  // Thursday
+        { day: 6, part: 'morning',   time: '8:00–11:00 am', hour: 8 }   // Saturday
+      ];
+      const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const MONTH_NAMES = ['January','February','March','April','May','June',
+                           'July','August','September','October','November','December'];
+      const now = new Date();
+      const earliest = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+      const out = [];
+
+      for (let i = 0; i < 35 && out.length < 8; i++) {
+        const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
+        for (let s = 0; s < SLOTS.length; s++) {
+          const slot = SLOTS[s];
+          if (d.getDay() !== slot.day) continue;
+          const start = new Date(d.getFullYear(), d.getMonth(), d.getDate(), slot.hour);
+          if (start < earliest) continue;
+          out.push(DAY_NAMES[slot.day] + ', ' + MONTH_NAMES[d.getMonth()] + ' ' + d.getDate() +
+                   ' — ' + slot.part + ' (' + slot.time + ')');
+        }
+      }
+      return out.slice(0, 8);
+    }
+
+    function populateWindows() {
+      const windows = buildWindows();
+      windowSelect.innerHTML =
+        windows.map(function(w) {
+          return '<option value="' + escapeHtml(w) + '">' + escapeHtml(w) + '</option>';
+        }).join('') +
+        '<option value="Another time — see notes">Another time — I\'ll suggest one below</option>';
+    }
+
+    function showError(msg) {
+      checkoutError.textContent = msg;
+      checkoutError.classList.add('show');
+    }
+    function clearError() {
+      checkoutError.classList.remove('show');
+      checkoutError.textContent = '';
+    }
+
+    function selectFulfillment(method) {
+      const totals = cartTotals();
+
+      // Delivery is gated behind the order minimum
+      if (method === 'delivery' && totals.totalPrice < DELIVERY_MINIMUM) {
+        const short = DELIVERY_MINIMUM - totals.totalPrice;
+        deliveryLockedMsg.innerHTML =
+          'Delivery is only available on orders over $' + DELIVERY_MINIMUM + '. ' +
+          'You\'re $' + short + ' away &mdash; add a little more to your order, or meet us at ' +
+          'Hilo Home Depot, which is free on any order.';
+        deliveryLockedMsg.classList.add('show');
+        return;
+      }
+
+      deliveryLockedMsg.classList.remove('show');
+      fulfillment = method;
+      fulfillmentInput.value = FULFILLMENT_LABELS[method];
+
+      optPickup.classList.toggle('selected', method === 'pickup');
+      optDelivery.classList.toggle('selected', method === 'delivery');
+      optPickup.setAttribute('aria-checked', method === 'pickup' ? 'true' : 'false');
+      optDelivery.setAttribute('aria-checked', method === 'delivery' ? 'true' : 'false');
+
+      addressWrap.style.display = method === 'delivery' ? 'block' : 'none';
+      checkoutFields.classList.add('show');
+      clearError();
+    }
+
+    function bindFulfillmentOption(el) {
+      el.addEventListener('click', function() { selectFulfillment(el.dataset.method); });
+      el.addEventListener('keydown', function(e) {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          selectFulfillment(el.dataset.method);
+        }
+      });
+    }
+    bindFulfillmentOption(optPickup);
+    bindFulfillmentOption(optDelivery);
+
+    function refreshDeliveryLock() {
+      const locked = cartTotals().totalPrice < DELIVERY_MINIMUM;
+      optDelivery.classList.toggle('locked', locked);
+
+      // If the cart drops below the minimum after delivery was chosen, undo it
+      if (locked && fulfillment === 'delivery') {
+        fulfillment = null;
+        fulfillmentInput.value = '';
+        optDelivery.classList.remove('selected');
+        optDelivery.setAttribute('aria-checked', 'false');
+        addressWrap.style.display = 'none';
+        checkoutFields.classList.remove('show');
+      }
+      if (!locked) deliveryLockedMsg.classList.remove('show');
+    }
+
+    function resetCheckoutForm() {
+      checkoutForm.reset();
+      fulfillment = null;
+      fulfillmentInput.value = '';
+      optPickup.classList.remove('selected');
+      optDelivery.classList.remove('selected');
+      optPickup.setAttribute('aria-checked', 'false');
+      optDelivery.setAttribute('aria-checked', 'false');
+      checkoutFields.classList.remove('show');
+      addressWrap.style.display = 'none';
+      deliveryLockedMsg.classList.remove('show');
+      clearError();
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Order';
+    }
+
+    // Cart → checkout
+    checkoutBtn.addEventListener('click', function() {
+      const totals = cartTotals();
+      checkoutItemsInput.value = totals.summary;
+      checkoutSubtotalInput.value = '$' + totals.totalPrice;
+      checkoutDepositInput.value = '$' + totals.deposit;
+
+      document.getElementById('checkoutSummary').innerHTML =
+        '<div>' + escapeHtml(totals.summary) + '</div>' +
+        '<div>Subtotal: <strong>$' + totals.totalPrice + '</strong> &nbsp;&middot;&nbsp; ' +
+        'Deposit: <strong>$' + totals.deposit + '</strong></div>';
+
+      populateWindows();
+      refreshDeliveryLock();
 
       checkoutStep1.style.display = 'none';
+      checkoutStep3.classList.remove('active');
       checkoutStep2.classList.add('active');
+      cartPanel.classList.add('checkout-active');
+      cartFooter.scrollTop = 0;
     });
 
     // Back to cart
     checkoutBack.addEventListener('click', function() {
       checkoutStep2.classList.remove('active');
       checkoutStep1.style.display = 'block';
+      cartPanel.classList.remove('checkout-active');
     });
 
-    // Form submit → Netlify, then redirect to Venmo
+    function showConfirmation(totals, name, email) {
+      const windowChoice = windowSelect.value;
+      const note = encodeURIComponent('Natural Abundance plant reservation - ' + totals.summary);
+
+      document.getElementById('doneVenmo').href =
+        'https://venmo.com/NaturalAbundanceHawaii?txn=pay&amount=' + totals.deposit + '&note=' + note;
+      document.getElementById('doneVenmo').textContent = 'Pay $' + totals.deposit + ' Deposit with Venmo';
+
+      document.getElementById('doneIntro').innerHTML =
+        'Thanks, ' + escapeHtml(name.split(' ')[0]) + ' &mdash; we have your order and sent a confirmation to ' +
+        escapeHtml(email) + '. Pay your deposit below to hold your plants.';
+
+      document.getElementById('doneRecap').innerHTML =
+        '<div>' + escapeHtml(totals.summary) + '</div>' +
+        '<div>Subtotal: <strong>$' + totals.totalPrice + '</strong> &nbsp;&middot;&nbsp; ' +
+        'Deposit: <strong>$' + totals.deposit + '</strong></div>' +
+        '<div>' + escapeHtml(FULFILLMENT_LABELS[fulfillment]) + '</div>' +
+        '<div>' + escapeHtml(windowChoice) + '</div>';
+
+      checkoutStep2.classList.remove('active');
+      checkoutStep3.classList.add('active');
+      cartFooter.scrollTop = 0;
+
+      // Clear the cart, but keep the footer visible so the Venmo button stays put
+      Object.keys(cart).forEach(function(k) { delete cart[k]; });
+      cartCount.textContent = '0';
+      cartFab.style.display = 'none';
+      cartItems.innerHTML = '<p style="color: var(--slate-teal); font-size: 0.9rem;">No plants selected yet.</p>';
+      const activeTab = document.querySelector('.nursery-tab.active');
+      if (activeTab) renderPlants(activeTab.dataset.category);
+    }
+
+    // Submit → record the order and email both sides → then offer Venmo
     checkoutForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const formData = new FormData(checkoutForm);
+      clearError();
 
-      // Submit to Netlify
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      }).then(function() {
-        // Redirect to Venmo
-        const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
-        const totalPrice = entries.reduce((s,[,v]) => s + v.qty * v.price, 0);
-        const deposit = Math.max(20, Math.ceil(totalPrice * 0.25));
-        const note = encodeURIComponent('Natural Abundance plant reservation - ' + entries.map(([n,v]) => n + ' x' + v.qty).join(', '));
-        window.open('https://venmo.com/NaturalAbundanceHawaii?txn=pay&amount=' + deposit + '&note=' + note, '_blank');
+      const totals = cartTotals();
+      const name = document.getElementById('checkout-name').value.trim();
+      const phone = document.getElementById('checkout-phone').value.trim();
+      const email = document.getElementById('checkout-email').value.trim();
+      const address = document.getElementById('checkout-address').value.trim();
 
-        // Reset cart
-        Object.keys(cart).forEach(function(k) { delete cart[k]; });
-        updateCart();
-        checkoutStep2.classList.remove('active');
-        checkoutStep1.style.display = 'block';
-        checkoutForm.reset();
-        closeCart();
+      if (totals.entries.length === 0) { showError('Your cart is empty.'); return; }
+      if (!fulfillment) { showError('Please choose how you\'d like to receive your plants.'); return; }
+      if (!name) { showError('Please enter your name.'); return; }
+      if (!phone) { showError('Please enter a phone number so we can reach you.'); return; }
+      if (!email || email.indexOf('@') < 1) { showError('Please enter a valid email address.'); return; }
+      if (fulfillment === 'delivery' && !address) { showError('Please enter a delivery address.'); return; }
 
-        // Show thank you
-        alert('Thank you! Your order has been submitted. You\u2019ll receive a confirmation within 24 hours.');
-      }).catch(function() {
-        alert('Something went wrong submitting your info. Please call us at (530) 748-8158 to complete your order.');
+      checkoutItemsInput.value = totals.summary;
+      checkoutSubtotalInput.value = '$' + totals.totalPrice;
+      checkoutDepositInput.value = '$' + totals.deposit;
+      fulfillmentInput.value = FULFILLMENT_LABELS[fulfillment];
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+
+      const body = new URLSearchParams(new FormData(checkoutForm)).toString();
+      const formPost = { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body };
+
+      // Two independent paths so an order is never lost:
+      //   1. Netlify Forms — stores the submission and emails Erik
+      //   2. Netlify Function — decrements inventory and sends both order emails
+      Promise.allSettled([
+        fetch('/', formPost),
+        fetch('/.netlify/functions/nursery-checkout', formPost)
+      ]).then(function(results) {
+        const anyOk = results.some(function(r) {
+          return r.status === 'fulfilled' && r.value && r.value.ok;
+        });
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Order';
+
+        if (!anyOk) {
+          showError('We couldn\'t submit your order just now. Please try again, or email ' +
+                    'erik@naturalabundance.co and we\'ll take care of it.');
+          return;
+        }
+        showConfirmation(totals, name, email);
       });
     });
+
+    document.getElementById('doneClose').addEventListener('click', closeCart);
+
 
     cartFab.addEventListener('click', openCart);
     cartOverlay.addEventListener('click', closeCart);
@@ -1207,15 +1525,26 @@
       });
     });
 
-    // Initial render
-    try {
-      renderPlants('all');
-    } catch(e) {
-      var g = document.getElementById('inventoryGrid');
-      var em = document.getElementById('inventoryEmpty');
-      if (g) g.style.display = 'none';
-      if (em) { em.style.display = 'block'; em.innerHTML = '<p>Unable to load inventory right now. Please <a href="mailto:erik@naturalabundance.co">contact us</a> for availability.</p>'; }
-    }
+    // Load inventory from JSON, then render
+    fetch('/data/inventory.json')
+      .then(function(r) {
+        if (!r.ok) throw new Error('Inventory fetch failed: ' + r.status);
+        return r.json();
+      })
+      .then(function(data) {
+        inventory = data;
+        renderPlants('all');
+      })
+      .catch(function() {
+        var g = document.getElementById('inventoryGrid');
+        var em = document.getElementById('inventoryEmpty');
+        if (g) g.style.display = 'none';
+        if (em) {
+          em.style.display = 'block';
+          em.innerHTML = '<p>Unable to load inventory right now. Please <a href="mailto:erik@naturalabundance.co">contact us</a> for availability.</p>';
+        }
+      });
+
 
   })();
   }); // end DOMContentLoaded
