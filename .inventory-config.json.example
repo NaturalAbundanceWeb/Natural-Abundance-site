@@ -1,0 +1,5 @@
+{
+  "functionUrl": "https://naturalabundance.co/.netlify/functions/update-inventory",
+  "dispatchSecret": "REPLACE_WITH_YOUR_SECRET",
+  "_note": "Copy this to .inventory-config.json and fill in your secret. That file is gitignored — safe to store credentials there."
+}

@@ -27,6 +27,7 @@
 - Do NOT use "organic conversion" as a service or talking point
 - Service #4 is "Korean Natural Farming & Soil Building" (not "organic conversion")
 - Never use emojis — the brand should feel professional and grounded, not AI-generated
+- Never use em dashes in written copy — use commas, periods, or a rewritten sentence instead
 - Testimonials: always abbreviate to first name + last initial (e.g., "Amanda R." not "Amanda Rose") to protect client privacy
 - Use ʻokina correctly in all Hawaiian words: Hawaiʻi, ʻāina, ʻawa, Pepeʻekeo, etc.
 
