@@ -123,7 +123,7 @@ async function sendOrderEmails(order) {
           from: from,
           to: [order.email],
           reply_to: CONTACT_EMAIL,
-          subject: 'Your Natural Abundance order',
+          subject: customerSubject(order),
           html: customerEmailHtml(order),
           text: customerEmailText(order),
         })
@@ -191,7 +191,8 @@ function ownerEmailHtml(o) {
       <div style="font-family:Georgia,serif;font-size:15px;color:${INK};margin-bottom:10px;"><strong>${esc(o.items)}</strong></div>
       <div style="font-family:Helvetica,Arial,sans-serif;font-size:14px;color:${INK};">
         Subtotal: <strong style="color:${FOREST};">${esc(o.subtotal)}</strong>
-        &nbsp;&middot;&nbsp; Deposit due: <strong style="color:${FOREST};">${esc(o.deposit)}</strong>
+        &nbsp;&middot;&nbsp; Deposit: <strong style="color:${FOREST};">${esc(o.deposit)}</strong>
+        <span style="color:${TEAL};">(check Venmo &mdash; not confirmed here)</span>
       </div>
     </div>
 
@@ -207,6 +208,7 @@ function ownerEmailHtml(o) {
 
     <div style="margin-top:22px;padding-top:18px;border-top:1px solid ${SAND};font-family:Helvetica,Arial,sans-serif;font-size:12px;color:${TEAL};line-height:1.7;">
       Inventory has been decremented automatically. Reply to this email to reach ${esc(o.name)} directly.
+      They were sent a confirmation with their day and time, and a Venmo link in case they haven't paid yet.
     </div>
   `);
 }
@@ -216,7 +218,7 @@ function ownerEmailText(o) {
     'NEW NURSERY ORDER',
     '',
     o.items,
-    `Subtotal: ${o.subtotal}  |  Deposit due: ${o.deposit}`,
+    `Subtotal: ${o.subtotal}  |  Deposit: ${o.deposit} (check Venmo - not confirmed here)`,
     '',
     `Fulfillment: ${o.fulfillment}`,
     `Requested:   ${o.window}`,
@@ -230,36 +232,50 @@ function ownerEmailText(o) {
   ].filter(Boolean).join('\n');
 }
 
+// "Saturday, September 19 — morning (8:00–11:00 am)" → "Saturday, September 19"
+function windowDate(w) {
+  const head = String(w || '').split(' — ')[0].trim();
+  if (!head || /^another time/i.test(head) || /^not specified/i.test(head)) return '';
+  return head;
+}
+
+function customerSubject(o) {
+  const date = windowDate(o.window);
+  return date ? `Your plant reservation — ${date}` : 'Your plant reservation';
+}
+
 function customerEmailHtml(o) {
   const isDelivery = /delivery/i.test(o.fulfillment);
   const venmoUrl = `https://venmo.com/${VENMO_HANDLE}?txn=pay&amount=${encodeURIComponent(stripDollar(o.deposit))}&note=${encodeURIComponent('Natural Abundance plant reservation - ' + o.items)}`;
 
   return shell(`
-    <div style="font-family:Helvetica,Arial,sans-serif;font-size:19px;font-weight:bold;color:${FOREST};margin-bottom:4px;">Thanks for your order</div>
+    <div style="font-family:Helvetica,Arial,sans-serif;font-size:19px;font-weight:bold;color:${FOREST};margin-bottom:4px;">Your reservation is in</div>
     <div style="font-family:Georgia,serif;font-size:14px;color:${TEAL};line-height:1.7;margin-bottom:20px;">
-      Aloha ${esc(firstName(o.name))} &mdash; we have your reservation and we'll be in touch shortly to confirm your day and time.
+      Aloha ${esc(firstName(o.name))} &mdash; here's what we're holding for you. We'll be in touch to confirm.
     </div>
 
-    <div style="background:${CREAM};border-radius:6px;padding:16px 18px;margin-bottom:20px;">
-      <div style="font-family:Georgia,serif;font-size:15px;color:${INK};margin-bottom:10px;"><strong>${esc(o.items)}</strong></div>
-      <div style="font-family:Helvetica,Arial,sans-serif;font-size:14px;color:${INK};">
-        Subtotal: <strong style="color:${FOREST};">${esc(o.subtotal)}</strong>
-        &nbsp;&middot;&nbsp; Deposit: <strong style="color:${FOREST};">${esc(o.deposit)}</strong>
-      </div>
+    <div style="background:${CREAM};border-radius:6px;padding:16px 18px;margin-bottom:18px;">
+      <div style="font-family:Helvetica,Arial,sans-serif;font-size:11px;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;color:${TEAL};margin-bottom:6px;">${isDelivery ? 'Delivery' : 'Meet-up'}</div>
+      <div style="font-family:Georgia,serif;font-size:16px;color:${FOREST};font-weight:bold;margin-bottom:4px;">${esc(o.window)}</div>
+      <div style="font-family:Georgia,serif;font-size:14px;color:${INK};">${esc(o.fulfillment)}${o.address ? '<br>' + esc(o.address) : ''}</div>
     </div>
 
-    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
-      ${row(isDelivery ? 'Delivery' : 'Meet-up', o.fulfillment)}
-      ${row('Requested', o.window)}
-      ${row('Address', o.address)}
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:6px;">
+      ${row('Plants', o.items)}
+      ${row('Subtotal', o.subtotal)}
+      ${row('Deposit', o.deposit)}
       ${row('Notes', o.notes)}
     </table>
 
-    <div style="margin:26px 0 8px;">
-      <a href="${venmoUrl}" style="display:inline-block;background:${AMBER};color:${INK};font-family:Helvetica,Arial,sans-serif;font-weight:bold;font-size:14px;letter-spacing:0.04em;text-decoration:none;padding:14px 26px;border-radius:6px;">Pay your ${esc(o.deposit)} deposit</a>
+    <div style="margin-top:22px;padding:14px 16px;background:${SAND};border-left:3px solid ${AMBER};border-radius:0 4px 4px 0;font-family:Helvetica,Arial,sans-serif;font-size:13px;color:${INK};line-height:1.7;">
+      Your ${esc(o.deposit)} deposit holds these plants for 7 days.
+      <strong>If you've already sent it, you're all set</strong> &mdash; we'll confirm as soon as it lands.
+      If not, you can send it
+      <a href="${venmoUrl}" style="color:${FOREST};font-weight:bold;">by Venmo here</a>.
     </div>
-    <div style="font-family:Helvetica,Arial,sans-serif;font-size:12px;color:${TEAL};line-height:1.7;">
-      The deposit holds your plants for 7 days. The balance is due when you pick them up or we drop them off.
+
+    <div style="margin-top:18px;font-family:Helvetica,Arial,sans-serif;font-size:12px;color:${TEAL};line-height:1.7;">
+      The balance is due when you pick them up or we drop them off.
       Questions, or need a different day or time? Just reply to this email.
     </div>
   `);
@@ -269,19 +285,22 @@ function customerEmailText(o) {
   return [
     `Aloha ${firstName(o.name)},`,
     '',
-    "Thanks for your order — we have your reservation and we'll be in touch shortly to confirm your day and time.",
+    "Your reservation is in — here's what we're holding for you. We'll be in touch to confirm.",
     '',
-    o.items,
-    `Subtotal: ${o.subtotal}  |  Deposit: ${o.deposit}`,
-    '',
+    `${/delivery/i.test(o.fulfillment) ? 'DELIVERY' : 'MEET-UP'}: ${o.window}`,
     o.fulfillment,
-    `Requested: ${o.window}`,
-    o.address ? `Address: ${o.address}` : '',
-    o.notes ? `Notes: ${o.notes}` : '',
+    o.address ? o.address : '',
     '',
-    `Pay your deposit: https://venmo.com/${VENMO_HANDLE}`,
+    `Plants:   ${o.items}`,
+    `Subtotal: ${o.subtotal}`,
+    `Deposit:  ${o.deposit}`,
+    o.notes ? `Notes:    ${o.notes}` : '',
     '',
-    'The deposit holds your plants for 7 days. The balance is due when you pick them up or we drop them off.',
+    `Your ${o.deposit} deposit holds these plants for 7 days. If you've already sent it,`,
+    "you're all set — we'll confirm as soon as it lands. If not, you can send it by Venmo:",
+    `https://venmo.com/${VENMO_HANDLE}`,
+    '',
+    'The balance is due when you pick them up or we drop them off.',
     'Questions, or need a different day or time? Just reply to this email.',
     '',
     'Natural Abundance',

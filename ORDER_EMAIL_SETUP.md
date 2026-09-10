@@ -67,7 +67,7 @@ without it orders come through fine but stock counts won't move.
 ## Delivery windows
 
 Offered slots are generated in `nursery.html` (`buildWindows`): Saturday mornings
-(8–11am) and Thursday afternoons (1–4pm), the next 8 openings, always at least 24
+(8–11am) and Thursday afternoons (2:30–5pm), the next 8 openings, always at least 24
 hours out. To change the days, hours, or how many are shown, edit the `SLOTS` array
 there. Customers can also pick "Another time" and describe what they need in the
 notes field.
