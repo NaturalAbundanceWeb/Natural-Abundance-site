@@ -1329,7 +1329,7 @@
       cartPanel.classList.remove('checkout-active');
     });
 
-    function showConfirmation(totals, name, email) {
+    function showConfirmation(totals, name, email, emailSent) {
       const windowChoice = windowSelect.value;
       const note = encodeURIComponent('Natural Abundance plant reservation - ' + totals.summary);
 
@@ -1337,9 +1337,11 @@
         'https://venmo.com/NaturalAbundanceHawaii?txn=pay&amount=' + totals.deposit + '&note=' + note;
       document.getElementById('doneVenmo').textContent = 'Pay $' + totals.deposit + ' Deposit with Venmo';
 
+      // Only promise a confirmation email if the server actually sent one
       document.getElementById('doneIntro').innerHTML =
-        'Thanks, ' + escapeHtml(name.split(' ')[0]) + ' &mdash; we have your order and sent a confirmation to ' +
-        escapeHtml(email) + '. Pay your deposit below to hold your plants.';
+        'Thanks, ' + escapeHtml(name.split(' ')[0]) + ' &mdash; we have your order' +
+        (emailSent ? ' and sent a confirmation to ' + escapeHtml(email) : '') +
+        '. Pay your deposit below to hold your plants.';
 
       document.getElementById('doneRecap').innerHTML =
         '<div>' + escapeHtml(totals.summary) + '</div>' +
@@ -1409,7 +1411,18 @@
                     'erik@naturalabundance.co and we\'ll take care of it.');
           return;
         }
-        showConfirmation(totals, name, email);
+
+        // Ask the function whether a confirmation email actually went out,
+        // so the page never promises an email that wasn't sent.
+        const fn = results[1];
+        const emailCheck = (fn.status === 'fulfilled' && fn.value && fn.value.ok)
+          ? fn.value.json().then(function(d) { return !!(d && d.email && d.email.sent); })
+                          .catch(function() { return false; })
+          : Promise.resolve(false);
+
+        emailCheck.then(function(emailSent) {
+          showConfirmation(totals, name, email, emailSent);
+        });
       });
     });
 
