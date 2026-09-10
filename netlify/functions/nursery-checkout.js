@@ -251,7 +251,7 @@ function customerEmailHtml(o) {
   return shell(`
     <div style="font-family:Helvetica,Arial,sans-serif;font-size:19px;font-weight:bold;color:${FOREST};margin-bottom:4px;">Your reservation is in</div>
     <div style="font-family:Georgia,serif;font-size:14px;color:${TEAL};line-height:1.7;margin-bottom:20px;">
-      Aloha ${esc(firstName(o.name))} &mdash; here's what we're holding for you. We'll be in touch to confirm.
+      Aloha ${esc(firstName(o.name))} &mdash; here's what we're holding for you.
     </div>
 
     <div style="background:${CREAM};border-radius:6px;padding:16px 18px;margin-bottom:18px;">
@@ -269,7 +269,7 @@ function customerEmailHtml(o) {
 
     <div style="margin-top:22px;padding:14px 16px;background:${SAND};border-left:3px solid ${AMBER};border-radius:0 4px 4px 0;font-family:Helvetica,Arial,sans-serif;font-size:13px;color:${INK};line-height:1.7;">
       Your ${esc(o.deposit)} deposit holds these plants for 7 days.
-      <strong>If you've already sent it, you're all set</strong> &mdash; we'll confirm as soon as it lands.
+      <strong>If you've already sent it, you're all set.</strong>
       If not, you can send it
       <a href="${venmoUrl}" style="color:${FOREST};font-weight:bold;">by Venmo here</a>.
     </div>
@@ -285,7 +285,7 @@ function customerEmailText(o) {
   return [
     `Aloha ${firstName(o.name)},`,
     '',
-    "Your reservation is in — here's what we're holding for you. We'll be in touch to confirm.",
+    "Your reservation is in — here's what we're holding for you.",
     '',
     `${/delivery/i.test(o.fulfillment) ? 'DELIVERY' : 'MEET-UP'}: ${o.window}`,
     o.fulfillment,
@@ -297,7 +297,7 @@ function customerEmailText(o) {
     o.notes ? `Notes:    ${o.notes}` : '',
     '',
     `Your ${o.deposit} deposit holds these plants for 7 days. If you've already sent it,`,
-    "you're all set — we'll confirm as soon as it lands. If not, you can send it by Venmo:",
+    "you're all set. If not, you can send it by Venmo:",
     `https://venmo.com/${VENMO_HANDLE}`,
     '',
     'The balance is due when you pick them up or we drop them off.',
