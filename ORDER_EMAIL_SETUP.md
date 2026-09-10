@@ -1,5 +1,23 @@
 # Order Notifications — Setup
 
+## STATUS — read this first
+
+| Feature | State |
+|---|---|
+| Erik gets an email on every order | **WORKING** since Sep 10, 2026 (via Netlify Forms) |
+| Customer gets a confirmation email | **BUILT BUT SWITCHED OFF** — needs Step 2 below |
+| Stock counts drop automatically | **BUILT BUT SWITCHED OFF** — needs `GITHUB_TOKEN` (see INVENTORY_SETUP.md) |
+
+**PENDING TODO — customer confirmation email.**
+The code is finished, tested, and live on the site. Nothing needs to be written.
+It only needs an email service connected: create a free Resend account, verify the
+domain with 3 DNS records, and add `RESEND_API_KEY` in Netlify. Roughly 15 minutes,
+all of it clicking. Until then, customers see their confirmation on screen (with the
+day and time they picked) but get nothing in their inbox — and the page correctly
+does not claim otherwise. Nothing is broken while this is off.
+
+---
+
 When someone orders on the nursery page, three things fire:
 
 1. **Netlify Forms** records the submission and emails Erik (no code, no API key)
