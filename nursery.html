@@ -30,27 +30,19 @@
   <style>
     /* Nursery hero now uses the standard page-hero system from style.css */
 
-    /* ── Nursery Intro ────────────────────────────────────── */
-    .nursery-intro {
-      background: var(--cream);
-      padding: 64px 24px;
-      text-align: center;
-    }
-    .nursery-intro p {
-      color: var(--slate-teal);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      max-width: var(--content-narrow);
-      margin: 0 auto 16px;
-    }
-    .nursery-intro p:last-of-type {
-      margin-bottom: 0;
+    /* Shorter hero here so the plants are visible without scrolling */
+    .page-hero { min-height: 200px; }
+
+    @media (max-width: 768px) {
+      /* the hero's inner padding is what pushes the plants off a phone screen */
+      .page-hero { min-height: 150px; padding: 14px 0 18px; }
+      .page-hero__content { padding-top: 18px; padding-bottom: 18px; }
     }
 
     /* ── Category Tabs ────────────────────────────────────── */
     .nursery-inventory {
       background: var(--white);
-      padding: 80px 24px 100px;
+      padding: 36px 24px 100px;
     }
     .nursery-tabs {
       display: flex;
@@ -717,7 +709,7 @@
         padding: 36px 24px 42px;
       }
       .nursery-inventory {
-        padding: 60px 24px 72px;
+        padding: 28px 24px 72px;
       }
       .nursery-tabs {
         gap: 6px;
@@ -787,18 +779,6 @@
     Free delivery to Hamakua Coast and Hilo on orders over $200
   </div>
 
-  <section class="nursery-intro fade-up">
-    <hr class="accent-line">
-    <p>
-      Every plant in our nursery is grown using organic practices and healthy, living soil right
-      here on the Big Island. Whether you're starting a backyard garden or planting a full
-      edible landscape, we have the trees, shrubs, and ground covers to get you growing.
-    </p>
-    <p>
-      Availability changes with the seasons. Reach out to reserve plants or ask about
-      custom growing for your project.
-    </p>
-  </section>
 
 
   <!-- ═══════════════════════════════════════════════════════
