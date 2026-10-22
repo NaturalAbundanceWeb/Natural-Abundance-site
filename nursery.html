@@ -816,6 +816,7 @@
         <button class="nursery-tab" role="tab" data-category="native" aria-selected="false">Native Plants</button>
         <button class="nursery-tab" role="tab" data-category="flowers" aria-selected="false">Flowers</button>
         <button class="nursery-tab" role="tab" data-category="other-edibles" aria-selected="false">Other Edibles</button>
+        <button class="nursery-tab" role="tab" data-category="ornamental" aria-selected="false">Palms &amp; Ornamentals</button>
         <button class="nursery-tab" role="tab" data-category="support" aria-selected="false">Support</button>
       </div>
 
@@ -1450,9 +1451,11 @@
     }
 
     function renderPlants(category) {
-      const filtered = category === 'all'
-        ? inventory
-        : inventory.filter(p => p.category === category);
+      const filtered = (category === 'all'
+        ? inventory.slice()
+        : inventory.filter(p => p.category === category))
+        // Sold out varieties always sit below whatever is in stock
+        .sort((a, b) => (a.available === 0) - (b.available === 0));
 
       if (filtered.length === 0) {
         grid.style.display = 'none';

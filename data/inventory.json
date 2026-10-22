@@ -1,23 +1,62 @@
 [
   {
-    "name": "Ackee",
-    "botanical": "Blighia sapida",
-    "category": "fruit-trees",
-    "price": 45,
-    "available": 29,
-    "image": "images/nursery/ackee.jpg",
-    "description": "Jamaica's national fruit and one of the most striking trees in the tropical landscape — brilliant red pods splitting open to reveal golden arils.",
-    "featured": true
-  },
-  {
     "name": "Bolivian Mangosteen",
     "botanical": "Garcinia boliviana",
     "category": "fruit-trees",
     "price": 55,
     "available": 1,
     "image": "images/nursery/bolivian-mangosteen.jpg",
-    "imagePosition": "40%",
-    "description": "Rare lemondrop mangosteen — a truly exceptional find. Jewel-bright fruit with a citrusy-sweet flavor unlike anything at the grocery store.",
+    "description": "Rare lemondrop mangosteen, a truly exceptional find. Jewel-bright fruit with a citrusy-sweet flavor unlike anything at the grocery store.",
+    "featured": false
+  },
+  {
+    "name": "Ackee",
+    "botanical": "Blighia sapida",
+    "category": "fruit-trees",
+    "price": 45,
+    "available": 30,
+    "image": "images/nursery/ackee.jpg",
+    "description": "Jamaica's national fruit and one of the most striking trees in the tropical landscape, brilliant red pods splitting open to reveal golden arils.",
+    "featured": true
+  },
+  {
+    "name": "Maʻafala ʻUlu",
+    "botanical": "Artocarpus altilis 'Maʻafala'",
+    "category": "fruit-trees",
+    "price": 40,
+    "available": 1,
+    "image": "",
+    "description": "A compact Samoan breadfruit that bears young and stays smaller than most ʻulu. Dense, nutty flesh that roasts, steams, or fries like a potato.",
+    "featured": false
+  },
+  {
+    "name": "Panama Berry",
+    "botanical": "Muntingia calabura",
+    "category": "fruit-trees",
+    "price": 40,
+    "available": 19,
+    "image": "",
+    "description": "Air layered, so it fruits quickly. Small sweet berries with a cotton candy flavor, produced nearly year round. Fast shade and a favorite of birds and kids alike.",
+    "featured": false
+  },
+  {
+    "name": "Ice Cream Banana",
+    "botanical": "Musa 'Blue Java'",
+    "category": "fruit-trees",
+    "price": 25,
+    "available": 3,
+    "image": "",
+    "description": "Silvery blue fruit that ripens to a soft, custard sweetness people compare to vanilla ice cream. Handles cooler, windier spots than most bananas.",
+    "featured": false
+  },
+  {
+    "name": "Tuʻu Ghia Banana",
+    "botanical": "Musa sp.",
+    "category": "fruit-trees",
+    "price": 25,
+    "available": 3,
+    "image": "",
+    "description": "A Pacific island banana grown for both cooking and eating fresh.",
     "featured": false
   },
   {
@@ -25,19 +64,59 @@
     "botanical": "Theobroma cacao",
     "category": "fruit-trees",
     "price": 15,
-    "available": 16,
+    "available": 8,
     "image": "images/nursery/cacao.jpg",
-    "description": "Grow your own chocolate. Cacao thrives in the dappled shade of a food forest and rewards patience with some of the most valuable pods on earth.",
+    "description": "Grow your own chocolate. Cacao thrives in dappled shade and rewards patience with some of the most valuable pods on earth.",
     "featured": false
   },
   {
-    "name": "Mulberry",
-    "botanical": "Morus sp.",
-    "category": "fruit-trees",
-    "price": 15,
-    "available": 4,
-    "image": "images/nursery/mulberry.jpg",
-    "description": "Fast-fruiting and generous — mulberry produces abundant sweet-tart berries while feeding birds and building soil beneath its canopy.",
+    "name": "Areca Vestiaria",
+    "botanical": "Areca vestiaria",
+    "category": "ornamental",
+    "price": 50,
+    "available": 3,
+    "image": "",
+    "description": "The orange crownshaft palm. A brilliant orange collar beneath the fronds makes it one of the most striking palms you can plant. Wants shade and shelter from wind.",
+    "featured": false
+  },
+  {
+    "name": "Lipstick Palm",
+    "botanical": "Cyrtostachys renda",
+    "category": "ornamental",
+    "price": 50,
+    "available": 1,
+    "image": "",
+    "description": "A scarlet crownshaft that looks painted on. Slow growing and worth the wait. Give it warmth, steady moisture, and protection from wind.",
+    "featured": false
+  },
+  {
+    "name": "Areca Palm",
+    "botanical": "Dypsis lutescens",
+    "category": "ornamental",
+    "price": 20,
+    "available": 15,
+    "image": "images/nursery/areca-palm.jpg",
+    "description": "Graceful, clumping palm that creates instant tropical privacy. Thrives in full sun or dappled shade with little care once established.",
+    "featured": false
+  },
+  {
+    "name": "Malabar Chestnut",
+    "botanical": "Pachira aquatica",
+    "category": "ornamental",
+    "price": 20,
+    "available": 8,
+    "image": "images/nursery/money-tree.jpg",
+    "description": "Also known across Asia as the Money Tree. Bold palmate leaves, edible seeds, and a reputation for good fortune.",
+    "featured": false
+  },
+  {
+    "name": "Hong Kong Orchid",
+    "botanical": "Bauhinia × blakeana",
+    "category": "flowers",
+    "price": 40,
+    "available": 3,
+    "image": "",
+    "description": "Large orchid shaped blooms in deep magenta through the cooler months. A fast growing shade tree that flowers young and sets no messy seed pods.",
     "featured": false
   },
   {
@@ -45,29 +124,29 @@
     "botanical": "Annona muricata",
     "category": "fruit-trees",
     "price": 20,
-    "available": 14,
+    "available": 0,
     "image": "images/nursery/soursop.jpg",
-    "description": "Tropical fruit prized across the Pacific for its creamy, tangy flesh — a natural fit for Hawaiʻi's warm, wet climate.",
+    "description": "Tropical fruit prized across the Pacific for its creamy, tangy flesh, a natural fit for Hawaiʻi's warm, wet climate.",
     "featured": false
   },
   {
-    "name": "Maʻo Hau Hele",
-    "botanical": "Hibiscus brackenridgei",
-    "category": "native",
+    "name": "Mulberry",
+    "botanical": "Morus sp.",
+    "category": "fruit-trees",
     "price": 15,
-    "available": 3,
-    "image": "images/nursery/mao-hau-hele.jpg",
-    "description": "Hawaiʻi's endangered state flower — a brilliant yellow native hibiscus and a meaningful addition to any restoration planting.",
+    "available": 0,
+    "image": "images/nursery/mulberry.jpg",
+    "description": "Fast-fruiting and generous, mulberry produces abundant sweet-tart berries while feeding birds and building soil beneath its canopy.",
     "featured": false
   },
   {
-    "name": "Koki'o ke'o ke'o",
+    "name": "Kokiʻo keʻo keʻo",
     "botanical": "Hibiscus waimeae",
     "category": "native",
     "price": 20,
-    "available": 2,
+    "available": 0,
     "image": "images/nursery/kokio.jpg",
-    "description": "A rare, fragrant white-flowering native hibiscus from Kauaʻi — seldom seen in cultivation and a standout in any native garden.",
+    "description": "A rare, fragrant white-flowering native hibiscus from Kauaʻi, seldom seen in cultivation and a standout in any native garden.",
     "featured": false
   },
   {
@@ -75,9 +154,19 @@
     "botanical": "Aleurites moluccanus",
     "category": "native",
     "price": 15,
-    "available": 14,
+    "available": 0,
     "image": "images/nursery/kukui.jpg",
-    "description": "The candlenut tree — Hawaiʻi's state tree. Fast-growing, culturally significant, and a generous provider of shade and living mulch.",
+    "description": "The candlenut tree, Hawaiʻi's state tree. Fast-growing, culturally significant, and a generous provider of shade and living mulch.",
+    "featured": false
+  },
+  {
+    "name": "Maʻo Hau Hele",
+    "botanical": "Hibiscus brackenridgei",
+    "category": "native",
+    "price": 15,
+    "available": 0,
+    "image": "images/nursery/mao-hau-hele.jpg",
+    "description": "Hawaiʻi's endangered state flower, a brilliant yellow native hibiscus and a meaningful addition to any restoration planting.",
     "featured": false
   },
   {
@@ -85,9 +174,9 @@
     "botanical": "Saccharum officinarum",
     "category": "other-edibles",
     "price": 10,
-    "available": 18,
+    "available": 0,
     "image": "images/nursery/sugar-cane.jpg",
-    "description": "Two beloved heirloom varieties — Big Ribbon and Aina Kea — for chewing, juicing, or planting as a bold vertical accent.",
+    "description": "Two beloved heirloom varieties, Big Ribbon and Aina Kea, for chewing, juicing, or planting as a bold vertical accent.",
     "featured": false
   },
   {
@@ -95,29 +184,9 @@
     "botanical": "Smallanthus sonchifolius",
     "category": "other-edibles",
     "price": 7,
-    "available": 20,
+    "available": 0,
     "image": "images/nursery/yacon.jpg",
-    "description": "An Andean root vegetable that thrives in Hawaiʻi — crunchy, sweet, and low-glycemic. Digs itself out each season with no fuss.",
-    "featured": false
-  },
-  {
-    "name": "Areca Palm",
-    "botanical": "Dypsis lutescens",
-    "category": "flowers",
-    "price": 25,
-    "available": 60,
-    "image": "images/nursery/areca-palm.jpg",
-    "description": "Graceful, clumping palm that creates instant tropical privacy. Thrives in full sun or dappled shade with little care once established.",
-    "featured": false
-  },
-  {
-    "name": "Money Tree",
-    "botanical": "Pachira aquatica",
-    "category": "flowers",
-    "price": 20,
-    "available": 8,
-    "image": "images/nursery/money-tree.jpg",
-    "description": "The Malabar Chestnut, known across Asia as the Money Tree. Bold palmate leaves, edible seeds, and a reputation for good fortune.",
+    "description": "An Andean root vegetable that thrives in Hawaiʻi. Crunchy, sweet, and low glycemic. Digs itself out each season with no fuss.",
     "featured": false
   },
   {
@@ -125,9 +194,9 @@
     "botanical": "Gliricidia sepium",
     "category": "support",
     "price": 25,
-    "available": 8,
+    "available": 0,
     "image": "images/nursery/gliricidia.jpg",
-    "description": "Madre de Cacao — a champion nitrogen-fixer and chop-and-drop mulch tree that feeds the whole system while shading young fruit trees.",
+    "description": "Madre de Cacao, a champion nitrogen-fixer and chop-and-drop mulch tree that feeds the whole system while shading young fruit trees.",
     "featured": false
   }
 ]
