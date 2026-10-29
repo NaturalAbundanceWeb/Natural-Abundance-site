@@ -11,3 +11,9 @@
 # Netlify Functions — Node 18 for native fetch support
 [functions]
   node_bundler = "esbuild"
+
+# Private client questionnaires: keep out of search engines
+[[headers]]
+  for = "/q/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"

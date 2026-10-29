@@ -1,0 +1,208 @@
+/* Natural Abundance client questionnaire (private pages under /q/) */
+.q-page { background: var(--cream); }
+
+.q-header {
+  background: var(--forest-green);
+  color: var(--white);
+  text-align: center;
+  padding: 28px 20px 24px;
+}
+.q-header img { width: 64px; margin: 0 auto 10px; filter: brightness(0) invert(1); }
+.q-brand {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+.q-descriptor {
+  display: block;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.q-wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; }
+
+.q-intro { text-align: center; margin-bottom: 40px; }
+.q-eyebrow {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-teal);
+}
+.q-intro h1 {
+  font-family: var(--font-heading);
+  color: var(--forest-green);
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.2;
+  margin: 6px 0 8px;
+}
+.q-prepared { font-style: italic; color: var(--slate-teal); margin-bottom: 18px; }
+.q-intro p { max-width: 560px; margin: 0 auto 10px; }
+.q-small { font-size: 0.88rem; color: var(--slate-teal); }
+
+.q-form { display: flex; flex-direction: column; gap: 22px; }
+
+.q-item {
+  border: none;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 24px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.q-item legend {
+  float: left;
+  width: 100%;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.12rem;
+  line-height: 1.35;
+  color: var(--forest-green);
+  margin-bottom: 6px;
+}
+.q-item legend + * { clear: both; }
+.q-num {
+  display: inline-block;
+  min-width: 1.6em;
+  color: var(--golden-amber);
+  font-weight: 700;
+}
+.q-hint { font-style: italic; font-size: 0.93rem; color: var(--slate-teal); margin-bottom: 12px; }
+
+.q-item textarea,
+.q-item input[type="text"],
+.q-item input[type="email"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 16px; /* prevents iOS zoom on focus */
+  color: var(--near-black);
+  background: var(--white);
+  border: 1.5px solid rgba(45, 90, 61, 0.25);
+  border-radius: 4px;
+  outline: none;
+  line-height: 1.6;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.q-item textarea { resize: vertical; min-height: 110px; }
+.q-item textarea:focus,
+.q-item input:focus {
+  border-color: var(--forest-green);
+  box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+.q-contact { display: grid; gap: 14px; }
+.q-contact label {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--forest-green);
+}
+.q-contact input { margin-top: 6px; }
+
+.q-options { display: flex; flex-direction: column; gap: 10px; }
+.q-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(45, 90, 61, 0.18);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.q-option input { margin-top: 6px; accent-color: var(--forest-green); width: 18px; height: 18px; flex-shrink: 0; }
+.q-option:has(input:checked) { border-color: var(--forest-green); background: var(--forest-green-light); }
+
+/* Plant catalog */
+.q-catalog {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 28px 22px;
+  box-shadow: var(--shadow-sm);
+}
+.q-catalog h2 {
+  font-family: var(--font-heading);
+  color: var(--forest-green);
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+.q-catalog .q-item { box-shadow: none; padding: 20px 0 0; }
+.cat-layer { margin-top: 26px; }
+.cat-layer h3 {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-teal);
+  border-bottom: 2px solid var(--golden-amber);
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+}
+.cat-head, .cat-row {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 62px);
+  gap: 6px;
+  align-items: center;
+}
+.cat-head span {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-teal);
+  text-align: center;
+}
+.cat-row { padding: 7px 0; border-bottom: 1px solid var(--warm-sand); }
+.cat-name { font-size: 0.97rem; line-height: 1.35; }
+.cat-choice { position: relative; cursor: pointer; }
+.cat-choice input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.cat-choice span {
+  display: block;
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 8px 0;
+  border: 1.5px solid rgba(45, 90, 61, 0.2);
+  border-radius: 999px;
+  color: var(--slate-teal);
+  transition: all 0.15s ease;
+}
+.cat-choice input:focus-visible + span { box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.2); }
+.cat-yes input:checked + span { background: var(--forest-green); border-color: var(--forest-green); color: var(--white); }
+.cat-maybe input:checked + span { background: var(--golden-amber); border-color: var(--golden-amber); color: var(--near-black); }
+.cat-no input:checked + span { background: var(--slate-teal); border-color: var(--slate-teal); color: var(--white); }
+.q-note { font-style: italic; font-size: 0.9rem; color: var(--slate-teal); margin-top: 18px; }
+
+@media (max-width: 480px) {
+  .cat-head, .cat-row { grid-template-columns: 1fr repeat(3, 52px); gap: 4px; }
+  .cat-choice span { font-size: 0.72rem; }
+  .q-item, .q-catalog { padding-left: 16px; padding-right: 16px; }
+}
+
+.q-submit { text-align: center; margin-top: 8px; }
+.q-submit .btn { font-size: 0.9rem; padding: 16px 40px; }
+
+.q-hp { position: absolute; left: -9999px; }
+
+.q-footer {
+  text-align: center;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--slate-teal);
+  padding: 0 20px 40px;
+}
+.q-footer a { color: var(--forest-green); }
+
+.q-thanks { text-align: center; padding-top: 40px; }
+.q-thanks h1 { font-family: var(--font-heading); color: var(--forest-green); font-size: 2.2rem; margin-bottom: 12px; }
