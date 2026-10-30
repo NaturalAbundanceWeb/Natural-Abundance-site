@@ -7,7 +7,7 @@
   text-align: center;
   padding: 28px 20px 24px;
 }
-.q-header img { width: 64px; margin: 0 auto 10px; filter: brightness(0) invert(1); }
+.q-header img { width: 120px; margin: 0 auto 12px; display: block; }
 .q-brand {
   display: block;
   font-family: var(--font-heading);
