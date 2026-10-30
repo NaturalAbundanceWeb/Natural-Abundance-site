@@ -67,7 +67,66 @@
 </div>
 </fieldset>
 <fieldset class="q-item">
-<legend><span class="q-num">4</span>Where does your water come from?</legend>
+<legend><span class="q-num">4</span>How much sun does the lot get?</legend>
+<div class="q-options">
+<label class="q-option"><input type="radio" name="sun" value="Mostly full sun" checked><span>Mostly full sun</span></label>
+<label class="q-option"><input type="radio" name="sun" value="A mix of sun and shade"><span>A mix of sun and shade</span></label>
+<label class="q-option"><input type="radio" name="sun" value="Mostly shade"><span>Mostly shade</span></label>
+</div>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">5</span>Tell me about the big trees on the lot, existing or on the edges.</legend>
+<p class="q-hint">Which ones give shade you rely on, and which would you like gone someday?</p>
+<textarea name="trees" rows="4" aria-label="Tell me about the big trees on the lot, existing or on the edges.">From our call: the trees I planted are only a few years old, so there isn't much shade yet. A big mango sits half on the property, with an "orphan garden" underneath it, and wild chickens live in it. An octopus tree and a paperbark tree give shade and cover for the chickens for now. I'd like to take them down eventually.</textarea>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">6</span>How do you feel about fencing?</legend>
+<div class="q-options">
+<label class="q-option"><input type="radio" name="fencing" value="I want a fence"><span>I want a fence</span></label>
+<label class="q-option"><input type="radio" name="fencing" value="I would rather use a living hedge"><span>I would rather use a living hedge</span></label>
+<label class="q-option"><input type="radio" name="fencing" value="A living hedge with some wire or posts" checked><span>A living hedge with some wire or posts</span></label>
+<label class="q-option"><input type="radio" name="fencing" value="Not sure yet"><span>Not sure yet</span></label>
+</div>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">7</span>What is happening along each boundary right now?</legend>
+<p class="q-hint">Front, back, and both sides. Hedges, walls, gaps, open jungle, unknown property lines.</p>
+<textarea name="boundaries" rows="4" aria-label="What is happening along each boundary right now?">From our call:
+- Side: a Panax hedge is started, to be extended from cuttings.
+- Back: clumping bamboo, some of it well established and some newer.
+- Front: a rock wall with plants growing along it. The hedge still has gaps.
+- Other side: open to the jungle. The lot hasn't been surveyed, so the exact line is unknown.</textarea>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">8</span>Do pigs get onto the property?</legend>
+<div class="q-options">
+<label class="q-option"><input type="radio" name="pigs" value="Not that I know of"><span>Not that I know of</span></label>
+<label class="q-option"><input type="radio" name="pigs" value="Occasionally" checked><span>Occasionally</span></label>
+<label class="q-option"><input type="radio" name="pigs" value="Often"><span>Often</span></label>
+<label class="q-option"><input type="radio" name="pigs" value="Not sure"><span>Not sure</span></label>
+</div>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">9</span>What have pigs or other animals damaged before?</legend>
+<p class="q-hint">Plants dug up, trees knocked over, mulch torn up. Chickens, rats and slugs count too.</p>
+<textarea name="pig-damage" rows="4" aria-label="What have pigs or other animals damaged before?">From our call: pigs come in from the jungle side. They've dug up pineapples and seed potatoes and knocked over bananas. They haven't been around for a while, but they come back.</textarea>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">10</span>Little fire ants?</legend>
+<div class="q-options">
+<label class="q-option"><input type="radio" name="fire-ants" value="None that I know of"><span>None that I know of</span></label>
+<label class="q-option"><input type="radio" name="fire-ants" value="Some, and I treat for them" checked><span>Some, and I treat for them</span></label>
+<label class="q-option"><input type="radio" name="fire-ants" value="A lot"><span>A lot</span></label>
+<label class="q-option"><input type="radio" name="fire-ants" value="Not sure"><span>Not sure</span></label>
+</div>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">11</span>Any weeds that give you the most trouble?</legend>
+<p class="q-hint">Cane grass, wedelia, clidemia, guava seedlings, anything that keeps coming back.</p>
+<textarea name="weeds" rows="4" aria-label="Any weeds that give you the most trouble?"></textarea>
+</fieldset>
+<fieldset class="q-item">
+<legend><span class="q-num">12</span>Where does your water come from?</legend>
 <div class="q-options">
 <label class="q-option"><input type="radio" name="water" value="Catchment tank"><span>Catchment tank</span></label>
 <label class="q-option"><input type="radio" name="water" value="County water"><span>County water</span></label>
@@ -76,13 +135,13 @@
 </div>
 </fieldset>
 <fieldset class="q-item">
-<legend><span class="q-num">5</span>What do you cook and eat most often? What would you love to grow more of?</legend>
+<legend><span class="q-num">13</span>What do you cook and eat most often? What would you love to grow more of?</legend>
 <textarea name="food" rows="4" aria-label="What do you cook and eat most often? What would you love to grow more of?">From our call: food and herbs come first. Open to flowers that complement them and bring in pollinators.
 
 Favorite foods to grow more of: </textarea>
 </fieldset>
 <fieldset class="q-item">
-<legend><span class="q-num">6</span>How much time per week can you realistically give this garden?</legend>
+<legend><span class="q-num">14</span>How much time per week can you realistically give this garden?</legend>
 <div class="q-options">
 <label class="q-option"><input type="radio" name="time" value="Less than 1 hour. Mostly self-sustaining."><span>Less than 1 hour. Mostly self-sustaining.</span></label>
 <label class="q-option"><input type="radio" name="time" value="1–3 hours. Light regular care."><span>1–3 hours. Light regular care.</span></label>
@@ -91,16 +150,16 @@ Favorite foods to grow more of: </textarea>
 </div>
 </fieldset>
 <fieldset class="q-item">
-<legend><span class="q-num">7</span>How do you use the yard day to day?</legend>
-<p class="q-hint">Parking, kids, dogs, a hangout spot, a clothesline, a future build? Anything the design has to work around.</p>
-<textarea name="yard-use" rows="4" aria-label="How do you use the yard day to day?">From our call: about a third of an acre, mostly garden with few structures. There's a rock garden with four pathways and a small fish pond in the center, which I'm open to tweaking. Wild chickens live in the mango tree. I have a small dog. Down the road, short nature-based therapy sessions.</textarea>
+<legend><span class="q-num">15</span>How do you use the yard day to day?</legend>
+<p class="q-hint">Parking, kids, pets, a hangout spot, a clothesline, a future build? Anything the design has to work around.</p>
+<textarea name="yard-use" rows="4" aria-label="How do you use the yard day to day?">From our call: about a third of an acre, mostly garden with few structures. There's a rock garden with four pathways and a small fish pond in the center, which I'm open to tweaking. Chickens in the yard. Down the road, short nature-based therapy sessions.</textarea>
 </fieldset>
 <fieldset class="q-item">
-<legend><span class="q-num">8</span>Any plants with cultural or sentimental significance to you or your family?</legend>
+<legend><span class="q-num">16</span>Any plants with cultural or sentimental significance to you or your family?</legend>
 <textarea name="significant-plants" rows="4" aria-label="Any plants with cultural or sentimental significance to you or your family?"></textarea>
 </fieldset>
 <fieldset class="q-item">
-<legend><span class="q-num">9</span>What's your rough budget for the installation?</legend>
+<legend><span class="q-num">17</span>What's your rough budget for the installation?</legend>
 <p class="q-hint">Helps calibrate plant sizes, quantities, soil building, and phasing.</p>
 <div class="q-options">
 <label class="q-option"><input type="radio" name="budget" value="Under $2,000"><span>Under $2,000</span></label>
@@ -110,7 +169,7 @@ Favorite foods to grow more of: </textarea>
 </div>
 </fieldset>
 <fieldset class="q-item">
-<legend><span class="q-num">10</span>How will you know this was done right?</legend>
+<legend><span class="q-num">18</span>How will you know this was done right?</legend>
 <p class="q-hint">What would make you look back and say: we got this right?</p>
 <textarea name="success" rows="4" aria-label="How will you know this was done right?">From our call: the garden reaches the next level, both in how it looks and how much food it grows, and it feels like a sanctuary.</textarea>
 </fieldset>
@@ -128,6 +187,11 @@ Favorite foods to grow more of: </textarea>
 <label class="cat-choice cat-yes"><input type="radio" name="plant-niu-coconut" value="Yes"><span>Yes</span></label>
 <label class="cat-choice cat-maybe"><input type="radio" name="plant-niu-coconut" value="Maybe"><span>Maybe</span></label>
 <label class="cat-choice cat-no"><input type="radio" name="plant-niu-coconut" value="No"><span>No</span></label>
+</div>
+<div class="cat-row" role="radiogroup" aria-label="Mango"><span class="cat-name">Mango</span>
+<label class="cat-choice cat-yes"><input type="radio" name="plant-mango" value="Yes"><span>Yes</span></label>
+<label class="cat-choice cat-maybe"><input type="radio" name="plant-mango" value="Maybe"><span>Maybe</span></label>
+<label class="cat-choice cat-no"><input type="radio" name="plant-mango" value="No"><span>No</span></label>
 </div>
 <div class="cat-row" role="radiogroup" aria-label="Avocado"><span class="cat-name">Avocado</span>
 <label class="cat-choice cat-yes"><input type="radio" name="plant-avocado" value="Yes"><span>Yes</span></label>
@@ -449,14 +513,7 @@ Favorite foods to grow more of: </textarea>
 
       <fieldset class="q-item">
         <legend>Anything else you want me to know?</legend>
-        <textarea name="anything-else" rows="4" aria-label="Anything else">Notes from our call:
-- Mostly full sun. The trees are only a few years old.
-- A big mango tree sits half on the property, with an "orphan garden" underneath it.
-- An octopus tree and a paperbark tree give shade for now. I'd like to take them down eventually.
-- Boundaries: a Panax hedge is started on one side, to be extended from cuttings. Clumping bamboo is going in along the back. The front has a rock wall with a hedge that still has gaps. One side is open to the jungle and hasn't been surveyed.
-- Pigs come in from the jungle side. They've dug up pineapples and seed potatoes and knocked over bananas.
-- Fire ants are treated and mostly at the edges.
-- Friends in Puna share plants, so I'd like to use those where I can to keep costs down.</textarea>
+        <textarea name="anything-else" rows="4" aria-label="Anything else">From our call: friends in Puna share plants, so I'd like to use those where I can to keep costs down.</textarea>
       </fieldset>
 
       <div class="q-submit">
