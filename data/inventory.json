@@ -15,7 +15,7 @@
     "category": "fruit-trees",
     "price": 30,
     "available": 30,
-    "image": "images/nursery/ackee-clean.jpg",
+    "image": "images/nursery/ackee-v2.jpg",
     "description": "Jamaica's national fruit and one of the most striking trees in the tropical landscape, brilliant red pods splitting open to reveal golden arils.",
     "featured": true,
     "imagePosition": "50%",
@@ -47,7 +47,7 @@
     "category": "fruit-trees",
     "price": 40,
     "available": 19,
-    "image": "images/nursery/panama-berry-clean.jpg",
+    "image": "images/nursery/panama-berry-v2.jpg",
     "description": "Air layered, so it fruits quickly. Small sweet berries with a cotton candy flavor, produced nearly year round. Fast shade and a favorite of birds and kids alike.",
     "featured": false,
     "imagePosition": "50%"
