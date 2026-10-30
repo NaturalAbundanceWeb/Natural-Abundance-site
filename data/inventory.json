@@ -13,12 +13,22 @@
     "name": "Ackee",
     "botanical": "Blighia sapida",
     "category": "fruit-trees",
-    "price": 45,
+    "price": 30,
     "available": 30,
-    "image": "images/nursery/ackee.jpg",
+    "image": "images/nursery/ackee-clean.jpg",
     "description": "Jamaica's national fruit and one of the most striking trees in the tropical landscape, brilliant red pods splitting open to reveal golden arils.",
     "featured": true,
-    "imagePosition": "50%"
+    "imagePosition": "50%",
+    "bulk": [
+      {
+        "qty": 2,
+        "total": 45
+      },
+      {
+        "qty": 5,
+        "total": 100
+      }
+    ]
   },
   {
     "name": "Maʻafala ʻUlu",
@@ -26,7 +36,7 @@
     "category": "fruit-trees",
     "price": 40,
     "available": 1,
-    "image": "images/nursery/maafala-ulu.jpg",
+    "image": "images/nursery/maafala-ulu-clean.jpg",
     "description": "A compact Samoan breadfruit that bears young and stays smaller than most ʻulu. Dense, nutty flesh that roasts, steams, or fries like a potato.",
     "featured": false,
     "imagePosition": "50%"
@@ -37,7 +47,7 @@
     "category": "fruit-trees",
     "price": 40,
     "available": 19,
-    "image": "images/nursery/panama-berry.jpg",
+    "image": "images/nursery/panama-berry-clean.jpg",
     "description": "Air layered, so it fruits quickly. Small sweet berries with a cotton candy flavor, produced nearly year round. Fast shade and a favorite of birds and kids alike.",
     "featured": false,
     "imagePosition": "50%"
@@ -48,7 +58,7 @@
     "category": "fruit-trees",
     "price": 25,
     "available": 3,
-    "image": "images/nursery/banana.jpg",
+    "image": "images/nursery/banana-clean.jpg",
     "description": "Silvery blue fruit that ripens to a soft, custard sweetness people compare to vanilla ice cream. Handles cooler, windier spots than most bananas.",
     "featured": false,
     "imagePosition": "50%"
@@ -59,7 +69,7 @@
     "category": "fruit-trees",
     "price": 25,
     "available": 3,
-    "image": "images/nursery/banana.jpg",
+    "image": "images/nursery/banana-clean.jpg",
     "description": "A Pacific island banana grown for both cooking and eating fresh.",
     "featured": false,
     "imagePosition": "50%"
@@ -70,7 +80,7 @@
     "category": "fruit-trees",
     "price": 10,
     "available": 8,
-    "image": "images/nursery/cacao.jpg",
+    "image": "images/nursery/cacao-clean.jpg",
     "description": "Grow your own chocolate. Cacao thrives in dappled shade and rewards patience with some of the most valuable pods on earth.",
     "featured": false,
     "imagePosition": "50%"
@@ -81,7 +91,7 @@
     "category": "ornamental",
     "price": 50,
     "available": 2,
-    "image": "images/nursery/areca-vestiaria.jpg",
+    "image": "images/nursery/areca-vestiaria-clean.jpg",
     "description": "The orange crownshaft palm. A brilliant orange collar beneath the fronds makes it one of the most striking palms you can plant. Wants shade and shelter from wind.",
     "featured": false,
     "imagePosition": "50%"
@@ -100,12 +110,22 @@
     "name": "Areca Palm",
     "botanical": "Dypsis lutescens",
     "category": "ornamental",
-    "price": 20,
+    "price": 25,
     "available": 15,
-    "image": "images/nursery/areca-palm.jpg",
+    "image": "images/nursery/areca-palm-clean.jpg",
     "description": "Graceful, clumping palm that creates instant tropical privacy. Thrives in full sun or dappled shade with little care once established.",
     "featured": false,
-    "imagePosition": "50%"
+    "imagePosition": "50%",
+    "bulk": [
+      {
+        "qty": 5,
+        "total": 110
+      },
+      {
+        "qty": 10,
+        "total": 200
+      }
+    ]
   },
   {
     "name": "Malabar Chestnut",
@@ -113,7 +133,7 @@
     "category": "ornamental",
     "price": 15,
     "available": 8,
-    "image": "images/nursery/malabar-chestnut.jpg",
+    "image": "images/nursery/malabar-chestnut-clean.jpg",
     "description": "Also known across Asia as the Money Tree. Bold palmate leaves, edible seeds, and a reputation for good fortune.",
     "featured": false,
     "imagePosition": "50%"
@@ -124,7 +144,7 @@
     "category": "flowers",
     "price": 40,
     "available": 3,
-    "image": "images/nursery/hong-kong-orchid.jpg",
+    "image": "images/nursery/hong-kong-orchid-clean.jpg",
     "description": "Large orchid shaped blooms in deep magenta through the cooler months. A fast growing shade tree that flowers young and sets no messy seed pods.",
     "featured": false,
     "imagePosition": "50%"

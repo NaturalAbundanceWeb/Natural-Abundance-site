@@ -159,6 +159,13 @@
       font-size: 1.1rem;
       color: var(--golden-amber);
     }
+    .plant-card__bulk {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--forest-green);
+      margin: 6px 0 0;
+    }
     .plant-card__avail {
       font-family: var(--font-ui);
       font-weight: 600;
@@ -1036,6 +1043,20 @@
     /* ══════════════════════════════════════════════════════
        RESERVATION CART
        ══════════════════════════════════════════════════════ */
+    // Bulk deals: a plant can carry bulk: [{qty, total}]. Finds the cheapest mix of deals and singles.
+    function lineTotal(name, qty, price) {
+      var p = inventory.find(function(x) { return x.name === name; });
+      var opts = (p && p.bulk) || [];
+      if (!opts.length) return qty * price;
+      var best = [0];
+      for (var n = 1; n <= qty; n++) {
+        var m = best[n - 1] + price;
+        opts.forEach(function(o) { if (n >= o.qty) m = Math.min(m, best[n - o.qty] + o.total); });
+        best[n] = m;
+      }
+      return best[qty];
+    }
+
     const cart = {};  // { plantName: { qty, price } }
 
     // Free delivery threshold — delivery is only offered above this
@@ -1054,7 +1075,7 @@
     function updateCart() {
       const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
       const totalItems = entries.reduce((s,[,v]) => s + v.qty, 0);
-      const totalPrice = entries.reduce((s,[,v]) => s + v.qty * v.price, 0);
+      const totalPrice = entries.reduce((s,[n,v]) => s + lineTotal(n, v.qty, v.price), 0);
       const deposit = Math.max(20, Math.ceil(totalPrice * 0.25));
 
       // FAB
@@ -1072,7 +1093,7 @@
         <div class="cart-item">
           <div>
             <div class="cart-item__name">${name} x${v.qty}</div>
-            <div class="cart-item__detail">$${v.price} each &mdash; $${v.qty * v.price}</div>
+            <div class="cart-item__detail">${lineTotal(name, v.qty, v.price) < v.qty * v.price ? 'Bulk deal applied: $' + lineTotal(name, v.qty, v.price) : '$' + v.price + ' each: $' + v.qty * v.price}</div>
           </div>
           <button class="cart-item__remove" data-name="${name}">Remove</button>
         </div>
@@ -1148,7 +1169,7 @@
 
     function cartTotals() {
       const entries = Object.entries(cart).filter(([,v]) => v.qty > 0);
-      const totalPrice = entries.reduce((s,[,v]) => s + v.qty * v.price, 0);
+      const totalPrice = entries.reduce((s,[n,v]) => s + lineTotal(n, v.qty, v.price), 0);
       return {
         entries: entries,
         totalPrice: totalPrice,
@@ -1476,6 +1497,7 @@
                 <span class="plant-card__price">$${plant.price}</span>
                 <span class="plant-card__avail ${avail.cls}">${avail.text}</span>
               </div>
+              ${plant.bulk && !soldOut ? `<p class="plant-card__bulk">${plant.bulk.map(b => b.qty + ' for $' + b.total).join(' &middot; ')}</p>` : ''}
               ${reserveBlock}
             </div>
           </div>
